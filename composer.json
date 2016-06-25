@@ -14,5 +14,5 @@
 	,"require": {
 		"mage2pro/amazon": "^1.0.0"
 	}
-	,"autoload": {"files": ["registration.php"], "psr-4": {"Df\\Amazon\\": ""}}
+	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\AmazonLogin\\": ""}}
 }
