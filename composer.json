@@ -1,5 +1,5 @@
 {
-	"name": "mage2pro/amazon"
+	"name": "mage2pro/amazon-login"
 	,"version": "1.0.0"
 	,"description": "«Login with Amazon» Magento 2 extension."
 	,"type": "magento2-module"
