@@ -1,0 +1,27 @@
+<?xml version='1.0'?>
+<page
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
+	<body>
+		<referenceContainer name='content'>
+			<!--
+				2016-06-03
+				This «Login with Amazon» button is shown in the header of the frontend pages,
+				near to the standard «Sign In» and «Create an Account» links.
+			-->
+			<block
+				class='Dfe\AmazonLogin\Button'
+				name='df.amazon.login-customer.account.login'
+				ifconfig='df_amazon/login/locations/loginPage'
+				before='-'
+			>
+				<arguments>
+					<argument name='jsOptions' xsi:type='array'>
+						<item name='size' xsi:type='string'>medium</item>
+						<item name='type' xsi:type='string'>LwA</item>
+					</argument>
+				</arguments>
+			</block>
+		</referenceContainer>
+	</body>
+</page>

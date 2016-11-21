@@ -1,0 +1,33 @@
+<?xml version='1.0'?>
+<page 
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
+	<body>
+		<referenceBlock name='header.links'>
+			<!--
+				2016-06-02
+				This «Login with Amazon» button is shown on the «=Customer Login» page,
+				above the standard «Registered Customers<» and «New Customers» blocks.
+			-->
+			<block
+				class='Dfe\AmazonLogin\Button'
+				name='df.amazon.login-header'
+				ifconfig='df_amazon/login/locations/header'
+				before='-'
+			>
+				<arguments>
+					<argument name='jsOptions' xsi:type='array'>
+						<item name='css' xsi:type='array'>
+							<item name='.page-header .header.panel' xsi:type='string'
+							>{"padding-bottom": 0}</item>
+						</item>
+						<item name='size' xsi:type='string'>small</item>
+						<item name='style' xsi:type='string'>{"margin-top": "-5px"}</item>
+						<item name='type' xsi:type='string'>Login</item>
+						<item name='wrapper' xsi:type='string'><![CDATA[<li/>]]></item>
+					</argument>
+				</arguments>				
+			</block>
+		</referenceBlock>
+	</body>
+</page>

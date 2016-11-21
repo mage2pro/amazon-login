@@ -14,18 +14,20 @@ class Button extends AbstractBlock {
 	 * @return string
 	 */
 	protected function _toHtml() {
+		/** @var string $module */
+		$module = df_module_name($this);
 		/** @var string $result */
 		if (!SLogin::s()->enable()) {
 			$result = '';
 		}
 		else if (df_customer_logged_in()) {
-			$result = df_x_magento_init('Df_Amazon/invalidate');
+			$result = df_x_magento_init("{$module}/invalidate");
 		}
 		else {
 			/** @var string $domId */
 			$domId = df_uid(4, 'df-amazon-');
 			$result =
-				df_x_magento_init('Df_Amazon/login', $this['jsOptions'] + [
+				df_x_magento_init("{$module}/login", $this['jsOptions'] + [
 					'clientId' => SCredentials::s()->id()
 					,'domId' => $domId
 					,'loggedIn' => df_customer_logged_in()
