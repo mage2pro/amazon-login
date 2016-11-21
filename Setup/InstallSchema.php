@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\AmazonLogin\Setup;
-use Magento\Framework\DB\Adapter;
 class InstallSchema extends \Df\Customer\External\Install\Schema {
 	/**
 	 * 2016-06-04
