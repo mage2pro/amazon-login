@@ -30,7 +30,7 @@ class Button extends AbstractBlock {
 					,'domId' => $domId
 					,'loggedIn' => df_customer_logged_in()
 					,'merchantId' => S::s()->merchantId()
-					,'redirect' => df_url('df-amazon/login', ['_secure' => true])
+					,'redirect' => df_url_frontend(df_route(__CLASS__), ['_secure' => true])
 					,'sandbox' => S::s()->test()
 				])
 				. df_tag('div', ['id' => $domId])
