@@ -26,5 +26,3 @@ class Credentials extends \Df\Core\Settings {
 	 */
 	protected function prefix() {return 'df_amazon/login/credentials/';}
 }
-
-

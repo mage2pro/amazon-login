@@ -1,7 +1,7 @@
 // 2016-06-03
 define([
-	'jquery', 'df', 'Magento_Customer/js/customer-data'
-], function($, df, customerData) {return (
+	'jquery', 'df'
+], function($, df) {return (
 	/**
 	 * @param {Object} config
 	 * @param {String} config.clientId
@@ -19,13 +19,13 @@ define([
 	function(config) {
 		/** @type {jQuery} HTMLDivElement */
 		var $container = $(document.getElementById(config.domId));
-		/**
-		 * 2016-06-03
-		 * Почему-то кнопка в шапке инициализируется дважды.
-		 * Это происходит только в шапке, другие кнопки инициализируются правильно, единократно.
-		 */
-		if (!$container.hasClass('df-amazon-login')) {
-			$container.addClass('df-amazon-login');
+		// 2016-06-03
+		// Почему-то кнопка в шапке инициализируется дважды.
+		// Это происходит только в шапке, другие кнопки инициализируются правильно, единократно.
+		/** @type {String} */
+		var CLASS = 'df-amazon-login';
+		if (!$container.hasClass(CLASS)) {
+			$container.addClass(CLASS);
 			if (df.d(config.wrapper)) {
 				$container.wrap(config.wrapper);
 			}
