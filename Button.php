@@ -23,18 +23,15 @@ class Button extends AbstractBlock {
 		}
 		else {
 			/** @var string $domId */
-			$domId = df_uid(4, 'df-amazon-');
-			$result =
-				df_x_magento_init(__CLASS__, 'login', $this['jsOptions'] + [
-					'clientId' => SCredentials::s()->id()
-					,'domId' => $domId
-					,'loggedIn' => df_customer_logged_in()
-					,'merchantId' => S::s()->merchantId()
-					,'redirect' => df_url_frontend(df_route(__CLASS__), ['_secure' => true])
-					,'sandbox' => S::s()->test()
-				])
-				. df_tag('div', ['id' => $domId])
-			;
+			$domId = df_uid(4, 'dfe-amazon-login-');
+			$result = df_x_magento_init(__CLASS__, 'login', $this['jsOptions'] + [
+				'clientId' => SCredentials::s()->id()
+				,'domId' => $domId
+				,'loggedIn' => df_customer_logged_in()
+				,'merchantId' => S::s()->merchantId()
+				,'redirect' => df_url_frontend(df_route(__CLASS__), ['_secure' => true])
+				,'sandbox' => S::s()->test()
+			]) . df_tag('div', ['id' => $domId]);
 		}
 		return $result;
 	}

@@ -1,7 +1,7 @@
 // 2016-06-03
 define([
-	'jquery', 'df'
-], function($, df) {return (
+	'df', 'jquery'
+], function(df, $) {return (
 	/**
 	 * @param {Object} config
 	 * @param {String} config.clientId
@@ -23,7 +23,7 @@ define([
 		// Почему-то кнопка в шапке инициализируется дважды.
 		// Это происходит только в шапке, другие кнопки инициализируются правильно, единократно.
 		/** @type {String} */
-		var CLASS = 'df-amazon-login';
+		var CLASS = 'dfe-amazon-login';
 		if (!$container.hasClass(CLASS)) {
 			$container.addClass(CLASS);
 			if (df.d(config.wrapper)) {
