@@ -2,8 +2,8 @@
 // 2016-06-02
 // «Login with Amazon» button
 namespace Dfe\AmazonLogin;
-use Df\Amazon\Settings as S;
-use Dfe\AmazonLogin\Settings as SLogin;
+use Df\Amazon\Settings as SCommon;
+use Dfe\AmazonLogin\Settings as S;
 use Dfe\AmazonLogin\Settings\Credentials as SCredentials;
 use Magento\Framework\View\Element\AbstractBlock;
 class Button extends AbstractBlock {
@@ -15,7 +15,7 @@ class Button extends AbstractBlock {
 	 */
 	protected function _toHtml() {
 		/** @var string $result */
-		if (!SLogin::s()->enable()) {
+		if (!S::s()->enable()) {
 			$result = '';
 		}
 		else if (df_customer_logged_in()) {
@@ -28,9 +28,9 @@ class Button extends AbstractBlock {
 				'clientId' => SCredentials::s()->id()
 				,'domId' => $domId
 				,'loggedIn' => df_customer_logged_in()
-				,'merchantId' => S::s()->merchantId()
+				,'merchantId' => SCommon::s()->merchantId()
 				,'redirect' => df_url_frontend(df_route(__CLASS__), ['_secure' => true])
-				,'sandbox' => S::s()->test()
+				,'sandbox' => SCommon::s()->test()
 			]) . df_tag('div', ['id' => $domId]);
 		}
 		return $result;
