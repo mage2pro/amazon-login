@@ -13,7 +13,6 @@ define([
 	 * @param {String} config.size
 	 * @param {?String} config.style
 	 * @param {String} config.type
-	 * @param {?String} config.wrapper
 	 * @returns void
 	 */
 	function(config) {
@@ -26,9 +25,6 @@ define([
 		var CLASS = 'dfe-amazon-login';
 		if (!$container.hasClass(CLASS)) {
 			$container.addClass(CLASS);
-			if (df.d(config.wrapper)) {
-				$container.wrap(config.wrapper);
-			}
 			window.onAmazonLoginReady = function() {
 				/**
 				 * 2016-06-04

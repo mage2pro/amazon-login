@@ -13,7 +13,7 @@
 	}]
 	,"require": {
 		"mage2pro/amazon": "^1.0.6"
-		,"mage2pro/core": "^1.9.19"
+		,"mage2pro/core": "^1.9.20"
 	}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\AmazonLogin\\": ""}}
 }
