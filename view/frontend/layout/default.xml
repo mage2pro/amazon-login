@@ -19,6 +19,18 @@
 						<item name='size' xsi:type='string'>small</item>
 						<item name='style' xsi:type='string'>{"margin-top": "-5px"}</item>
 						<item name='type' xsi:type='string'>Login</item>
+<!--
+2016-11-23
+Ссылки в шапке надо обязательно обрамлять в <li>, потому что они выводятся внутри <ul>:
+	$html = '<ul' . ($this->hasCssClass() ? ' class="' . $this->escapeHtml(
+		$this->getCssClass()
+	) . '"' : '') . '>';
+	foreach ($this->getLinks() as $link) {
+		$html .= $this->renderLink($link);
+	}
+	$html .= '</ul>';
+https://github.com/magento/magento2/blob/2.1.2/lib/internal/Magento/Framework/View/Element/Html/Links.php#L76-L82
+-->
 						<item name='wrapper' xsi:type='string'><![CDATA[<li/>]]></item>
 					</argument>
 				</arguments>				

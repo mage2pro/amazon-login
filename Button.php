@@ -3,36 +3,34 @@
 // «Login with Amazon» button
 namespace Dfe\AmazonLogin;
 use Df\Amazon\Settings as SCommon;
-use Dfe\AmazonLogin\Settings as S;
 use Dfe\AmazonLogin\Settings\Credentials as SCredentials;
-use Magento\Framework\View\Element\AbstractBlock;
-class Button extends AbstractBlock {
+class Button extends \Df\Sso\Button {
 	/**
-	 * 2016-06-03
+	 * 2016-11-23
 	 * @override
-	 * @see AbstractBlock::_toHtml()
+	 * @see \Df\Sso\Button::loggedIn()
+	 * @used-by \Df\Sso\Button::_toHtml()
 	 * @return string
 	 */
-	protected function _toHtml() {
-		/** @var string $result */
-		if (!S::s()->enable()) {
-			$result = '';
-		}
-		else if (df_customer_logged_in()) {
-			$result = df_x_magento_init(__CLASS__, 'invalidate');
-		}
-		else {
-			/** @var string $domId */
-			$domId = df_uid(4, 'dfe-amazon-login-');
-			$result = df_x_magento_init(__CLASS__, 'login', $this['jsOptions'] + [
-				'clientId' => SCredentials::s()->id()
-				,'domId' => $domId
-				,'loggedIn' => df_customer_logged_in()
-				,'merchantId' => SCommon::s()->merchantId()
-				,'redirect' => df_url_frontend(df_route(__CLASS__), ['_secure' => true])
-				,'sandbox' => SCommon::s()->test()
-			]) . df_tag('div', ['id' => $domId]);
-		}
-		return $result;
+	protected function loggedIn() {return df_x_magento_init(__CLASS__, 'invalidate');}
+
+	/**
+	 * 2016-11-23
+	 * @override
+	 * @see \Df\Sso\Button::loggedOut()
+	 * @used-by \Df\Sso\Button::_toHtml()
+	 * @return string
+	 */
+	protected function loggedOut() {
+		/** @var string $domId */
+		$domId = df_uid(4, 'dfe-amazon-login-');
+		return df_x_magento_init(__CLASS__, 'login', $this['jsOptions'] + [
+			'clientId' => SCredentials::s()->id()
+			,'domId' => $domId
+			,'loggedIn' => df_customer_logged_in()
+			,'merchantId' => SCommon::s()->merchantId()
+			,'redirect' => df_url_frontend(df_route(__CLASS__), ['_secure' => true])
+			,'sandbox' => SCommon::s()->test()
+		]) . df_tag('div', ['id' => $domId]);
 	}
 }
