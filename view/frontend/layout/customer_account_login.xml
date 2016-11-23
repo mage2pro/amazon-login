@@ -12,7 +12,7 @@ https://github.com/mage2pro/core/blob/1.9.18/Sso/view/frontend/layout/customer_a
 		<referenceContainer name='df.customer.login.before'>
 			<block
 				class='Dfe\AmazonLogin\Button'
-				ifconfig='df_amazon/login/locations/loginPage'
+				ifconfig='df_amazon/login/locations/loginPage/enable'
 			>
 				<arguments>
 					<argument name='jsOptions' xsi:type='array'>

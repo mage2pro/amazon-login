@@ -8,7 +8,7 @@
 			<block
 				before='-'
 				class='Dfe\AmazonLogin\Button'
-				ifconfig='df_amazon/login/locations/header'
+				ifconfig='df_amazon/login/locations/header/enable'
 			>
 				<arguments>
 					<argument name='jsOptions' xsi:type='array'>
