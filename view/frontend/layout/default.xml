@@ -6,10 +6,9 @@
 	<body>
 		<referenceBlock name='header.links'>
 			<block
-				class='Dfe\AmazonLogin\Button'
-				name='Dfe_AmazonLogin_Button-header.links'
-				ifconfig='df_amazon/login/locations/header'
 				before='-'
+				class='Dfe\AmazonLogin\Button'
+				ifconfig='df_amazon/login/locations/header'
 			>
 				<arguments>
 					<argument name='jsOptions' xsi:type='array'>
