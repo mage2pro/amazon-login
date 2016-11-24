@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/amazon-login"
-	,"version": "1.0.5"
+	,"version": "1.0.6"
 	,"description": "«Login with Amazon» Magento 2 extension."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/amazon-login"
@@ -12,8 +12,8 @@
 		"role": "Developer"
 	}]
 	,"require": {
-		"mage2pro/amazon": "^1.0.6"
-		,"mage2pro/core": "^1.9.20"
+		"mage2pro/amazon": "^1.0.8"
+		,"mage2pro/core": "^1.9.21"
 	}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\AmazonLogin\\": ""}}
 }

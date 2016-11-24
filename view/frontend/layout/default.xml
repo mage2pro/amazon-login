@@ -5,13 +5,11 @@
 >
 	<body>
 		<referenceBlock name='header.links'>
-			<block
-				before='-'
-				class='Dfe\AmazonLogin\Button'
-				ifconfig='df_amazon/login/locations/header/enable'
-			>
+			<block before='-' class='Dfe\AmazonLogin\Button'>
 				<arguments>
-					<argument name='jsOptions' xsi:type='array'>
+					<argument name='dfConfigPrefix' xsi:type='string'
+					>df_amazon/login/locations/header</argument>
+					<argument name='dfJsOptions' xsi:type='array'>
 						<item name='css' xsi:type='array'>
 							<item name='.page-header .header.panel' xsi:type='string'
 							>{"padding-bottom": 0}</item>

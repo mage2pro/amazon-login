@@ -2,7 +2,7 @@
 // 2016-06-02
 namespace Dfe\AmazonLogin\Settings;
 /** @method static Credentials s() */
-class Credentials extends \Df\Core\Settings {
+class Credentials extends \Df\Config\Settings {
 	/**
 	 * 2016-06-02
 	 * «Client ID»
@@ -20,9 +20,9 @@ class Credentials extends \Df\Core\Settings {
 	/**
 	 * 2016-06-02
 	 * @override
-	 * @see \Df\Core\Settings::prefix()
-	 * @used-by \Df\Core\Settings::v()
+	 * @see \Df\Config\Settings::prefix()
+	 * @used-by \Df\Config\Settings::v()
 	 * @return string
 	 */
-	protected function prefix() {return 'df_amazon/login/credentials/';}
+	protected function prefix() {return 'df_amazon/login/credentials';}
 }

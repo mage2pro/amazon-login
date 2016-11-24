@@ -24,7 +24,7 @@ class Button extends \Df\Sso\Button {
 	protected function loggedOut() {
 		/** @var string $domId */
 		$domId = df_uid(4, 'dfe-amazon-login-');
-		return df_x_magento_init(__CLASS__, 'login', $this['jsOptions'] + [
+		return df_x_magento_init(__CLASS__, 'login', $this['dfJsOptions'] + [
 			'clientId' => SCredentials::s()->id()
 			,'domId' => $domId
 			,'loggedIn' => df_customer_logged_in()
