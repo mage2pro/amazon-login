@@ -67,9 +67,11 @@
 <!--
 2016-11-23
 Раньше тут ещё стояло: «validate-length maximum-length-64 minimum-length-64».
-Однако сейчас (после введения нового уровня вложенности group внутри «Button Locations»)
+Однако после обновления Magento 2016-08-06
 валидатор стал ложно срабатывать на звёздочки ранеё введённого пароля:
 «validate-length maximum-length-64 minimum-length-64».
+Аналогичное проявление для модуля Dfe_TwoCheckout:
+https://code.dmitry-fedyuk.com/m2e/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 -->
 						<validate>required-entry</validate>
 					</field>
