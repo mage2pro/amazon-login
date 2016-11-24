@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='urn:magento:module:Magento_Store:etc/config.xsd'
+>
+    <default>
+        <df_amazon>
+			<login>
+				<button>
+					<header>
+						<label>Login with Amazon</label>
+					</header>
+					<loginPage>
+						<label>Login with Amazon</label>
+					</loginPage>
+					<registratonPage>
+						<label>Login with Amazon</label>
+					</registratonPage>
+				</button>
+			</login>
+		</df_amazon>
+    </default>
+</config>

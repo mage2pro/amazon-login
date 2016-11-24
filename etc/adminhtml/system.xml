@@ -129,6 +129,22 @@ https://code.dmitry-fedyuk.com/m2e/2checkout/blob/1.1.9/etc/adminhtml/system.xml
 </ul>]]></comment>
 							<depends><field id='enable'>1</field></depends>
 						</field>
+						<field
+							id='label'
+							translate='label'
+							type='text'
+							sortOrder='3'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Label</label>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type' negative='1'>button-native</field>
+							</depends>
+							<validate>required-entry</validate>
+						</field>
 					</group>
 					<group
 						id='loginPage'
@@ -171,6 +187,22 @@ https://code.dmitry-fedyuk.com/m2e/2checkout/blob/1.1.9/etc/adminhtml/system.xml
 </ul>]]></comment>
 							<depends><field id='enable'>1</field></depends>
 						</field>
+						<field
+							id='label'
+							translate='label'
+							type='text'
+							sortOrder='3'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Label</label>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type' negative='1'>button-native</field>
+							</depends>
+							<validate>required-entry</validate>
+						</field>
 					</group>
 					<group
 						id='registratonPage'
@@ -212,6 +244,22 @@ https://code.dmitry-fedyuk.com/m2e/2checkout/blob/1.1.9/etc/adminhtml/system.xml
 	<li><b>link</b>: a text link will be used instead of a button.</li>
 </ul>]]></comment>
 							<depends><field id='enable'>1</field></depends>
+						</field>
+						<field
+							id='label'
+							translate='label'
+							type='text'
+							sortOrder='3'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Label</label>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type' negative='1'>button-native</field>
+							</depends>
+							<validate>required-entry</validate>
 						</field>
 					</group>
 				</group>
