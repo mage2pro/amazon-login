@@ -2,7 +2,7 @@
 // 2016-06-02
 namespace Dfe\AmazonLogin\Settings;
 /** @method static Credentials s() */
-class Credentials extends \Df\Config\Settings {
+final class Credentials extends \Df\Config\Settings {
 	/**
 	 * 2016-06-02
 	 * «Client ID»
