@@ -12,6 +12,11 @@ https://github.com/mage2pro/core/blob/1.9.18/Sso/view/frontend/layout/customer_a
 		<referenceContainer name='df.customer.login.before'>
 			<block class='Dfe\AmazonLogin\Button'>
 				<arguments>
+<!--
+2016-11-24
+protected function s() {return dfc($this, function() {return new S($this['dfConfigPrefix']);});}
+https://github.com/mage2pro/core/blob/1.9.21/Sso/Button.php?ts=4#L63
+-->
 					<argument name='dfConfigPrefix' xsi:type='string'
 					>df_amazon/login/locations/loginPage</argument>
 					<argument name='dfJsOptions' xsi:type='array'>
