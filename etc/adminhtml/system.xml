@@ -130,10 +130,61 @@ https://code.dmitry-fedyuk.com/m2e/2checkout/blob/1.1.9/etc/adminhtml/system.xml
 							<depends><field id='enable'>1</field></depends>
 						</field>
 						<field
+							id='nativeType'
+							translate='label'
+							type='select'
+							sortOrder='3'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Native Type</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Type</source_model>
+							<comment><![CDATA[You can examine the types in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
+							id='nativeSize'
+							translate='label'
+							type='select'
+							sortOrder='4'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Size</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Size</source_model>
+							<comment><![CDATA[You can examine the sizes in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
+							id='nativeColor'
+							translate='label'
+							type='select'
+							sortOrder='5'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Color</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Color</source_model>
+							<comment><![CDATA[You can examine the colors in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
 							id='label'
 							translate='label'
 							type='text'
-							sortOrder='3'
+							sortOrder='6'
 							showInDefault='1'
 							showInWebsite='1'
 							showInStore='1'
@@ -188,10 +239,61 @@ https://code.dmitry-fedyuk.com/m2e/2checkout/blob/1.1.9/etc/adminhtml/system.xml
 							<depends><field id='enable'>1</field></depends>
 						</field>
 						<field
+							id='nativeType'
+							translate='label'
+							type='select'
+							sortOrder='3'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Native Type</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Type</source_model>
+							<comment><![CDATA[You can examine the types in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
+							id='nativeSize'
+							translate='label'
+							type='select'
+							sortOrder='4'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Size</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Size</source_model>
+							<comment><![CDATA[You can examine the sizes in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
+							id='nativeColor'
+							translate='label'
+							type='select'
+							sortOrder='5'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Color</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Color</source_model>
+							<comment><![CDATA[You can examine the colors in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
 							id='label'
 							translate='label'
 							type='text'
-							sortOrder='3'
+							sortOrder='6'
 							showInDefault='1'
 							showInWebsite='1'
 							showInStore='1'
@@ -246,10 +348,61 @@ https://code.dmitry-fedyuk.com/m2e/2checkout/blob/1.1.9/etc/adminhtml/system.xml
 							<depends><field id='enable'>1</field></depends>
 						</field>
 						<field
+							id='nativeType'
+							translate='label'
+							type='select'
+							sortOrder='3'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Native Type</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Type</source_model>
+							<comment><![CDATA[You can examine the types in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
+							id='nativeSize'
+							translate='label'
+							type='select'
+							sortOrder='4'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Size</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Size</source_model>
+							<comment><![CDATA[You can examine the sizes in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
+							id='nativeColor'
+							translate='label'
+							type='select'
+							sortOrder='5'
+							showInDefault='1'
+							showInWebsite='1'
+							showInStore='1'
+						>
+							<label>Color</label>
+							<source_model>Dfe\AmazonLogin\Source\Button\Native\Color</source_model>
+							<comment><![CDATA[You can examine the colors in the Amazons's «<a target='_blank' href='https://payments.amazon.com/developer/documentation/lpwa/201953980'>Button widgets</a>» documenation.]]></comment>
+							<depends>
+								<field id='enable'>1</field>
+								<field id='type'>button-native</field>
+							</depends>
+						</field>
+						<field
 							id='label'
 							translate='label'
 							type='text'
-							sortOrder='3'
+							sortOrder='6'
 							showInDefault='1'
 							showInWebsite='1'
 							showInStore='1'
