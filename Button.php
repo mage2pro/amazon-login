@@ -21,16 +21,14 @@ class Button extends \Df\Sso\Button {
 	 * @used-by \Df\Sso\Button::_toHtml()
 	 * @return string
 	 */
-	protected function loggedOut() {
-		/** @var string $domId */
-		$domId = df_uid(4, 'dfe-amazon-login-');
-		return df_x_magento_init(__CLASS__, 'login', $this['dfJsOptions'] + [
+	protected function loggedOut() {return
+		df_x_magento_init(__CLASS__, 'button', $this['dfJsOptions'] + [
 			'clientId' => SCredentials::s()->id()
-			,'domId' => $domId
+			,'domId' => $this->id()
 			,'loggedIn' => df_customer_logged_in()
 			,'merchantId' => SCommon::s()->merchantId()
 			,'redirect' => df_url_frontend(df_route(__CLASS__), ['_secure' => true])
 			,'sandbox' => SCommon::s()->test()
-		]) . df_tag('div', ['id' => $domId]);
-	}
+		]) . df_tag('div', ['id' => $this->id()])
+	;}
 }
