@@ -12,18 +12,21 @@
 						<nativeColor>Gold</nativeColor>
 						<nativeSize>small</nativeSize>
 						<nativeType>Login</nativeType>
+						<type>U</type>
 					</header>
 					<loginPage>
 						<label>Login with Amazon</label>
 						<nativeColor>Gold</nativeColor>
 						<nativeSize>small</nativeSize>
 						<nativeType>LwA</nativeType>
+						<type>U</type>
 					</loginPage>
 					<registratonPage>
 						<label>Login with Amazon</label>
 						<nativeColor>Gold</nativeColor>
 						<nativeSize>small</nativeSize>
 						<nativeType>LwA</nativeType>
+						<type>U</type>
 					</registratonPage>
 				</button>
 			</login>
