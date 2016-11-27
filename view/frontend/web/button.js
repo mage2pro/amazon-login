@@ -10,6 +10,7 @@ define([
 	 * @param {String} config.merchantId
 	 * @param {String} config.redirect
 	 * @param {Boolean} config.sandbox
+	 * @param {String} config.selector
 	 * @param {String} config.type
 	 * @param {Object} config.widget
 	 * @param {String} config.widget.size
