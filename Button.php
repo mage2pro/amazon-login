@@ -13,7 +13,7 @@ class Button extends \Df\Sso\Button\Js {
 	 * @used-by \Df\Sso\Button\Js::loggedOut()
 	 * @return array(string => mixed)
 	 */
-	protected function jsOptions() {return [
+	final protected function jsOptions() {return [
 		'clientId' => SCredentials::s()->id()
 		,'loggedIn' => df_customer_logged_in()
 		,'merchantId' => SCommon::s()->merchantId()
@@ -46,7 +46,7 @@ class Button extends \Df\Sso\Button\Js {
 	 * @used-by \Df\Sso\Button::_toHtml()
 	 * @return string
 	 */
-	protected function loggedIn() {return df_x_magento_init(__CLASS__, 'invalidate');}
+	final protected function loggedIn() {return df_x_magento_init(__CLASS__, 'invalidate');}
 
 	/**
 	 * 2016-11-26
@@ -55,5 +55,5 @@ class Button extends \Df\Sso\Button\Js {
 	 * @used-by \Df\Sso\Button\Js::loggedOut()
 	 * @return bool
 	 */
-	protected function redirectShouldBeSecure() {return true;}
+	final protected function redirectShouldBeSecure() {return true;}
 }
