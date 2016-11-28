@@ -6,19 +6,20 @@ define([
 	 * @param {Object} config
 	 * @param {String} config.clientId
 	 * @param {?Object} config.css
-	 * @param {String} config.domId
 	 * @param {String} config.merchantId
 	 * @param {String} config.redirect
 	 * @param {Boolean} config.sandbox
 	 * @param {String} config.selector
+	 * @param {?String} config.style
 	 * @param {String} config.type
 	 * @param {Object} config.widget
 	 * @param {String} config.widget.size
 	 * @param {?String} config.widget.style
 	 * @param {String} config.widget.type
+	 * @param {HTMLDivElement} element
 	 * @returns void
 	 */
-	function(config) {
+	function(config, element) {
 		// 2016-06-04
 		// https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/javascript_sdk_reference.html#setClientId
 		// «Sets the client identifier that will be used to request authorization.
@@ -178,80 +179,91 @@ define([
 			 */
 			,config.redirect);
 		};
+		/**
+		 * 2016-11-28
+		 * Система клонирует меню из блока «header.links» в видимый только в мобильном режиме
+		 * (но присутствующий в DOM и в настольном режиме) блок «store.links»:
+				$('.panel.header > .header.links').clone().appendTo('#store\\.links');
+		 * https://github.com/magento/magento2/blob/2.1.2/app/design/frontend/Magento/blank/web/js/theme.js#L26-L26
+		 * https://mage2.pro/t/2336
+		 * По этой причине у нас сразу 2 одинаковых кнопки в шапке: одна видимая и вторая — невидимая.
+		 * Обе эти кнопки инициализируются независимо (сюда мы попадаем для каждой из этих кнопок отдельно),
+		 * но имеют одинаковые идентификаторы.
+		 * При этом код document.getElementById('<идентификатор>') или $('#<идентификатор>')
+		 * вернёт только первую из кнопок.
+		 * Найти вторую можно по селектору: $(config.selector)
+		 * При этом такой поиск по селектору может вернуть и третью кнопку,
+		 * потому что на страницах регистрации и аутентификации наша кнопка аутентификации
+		 * может быть одновременно расположена как в шапке, так и над блоком регистрации/аутентификации.
+		 */
 		/** @type {jQuery} HTMLDivElement */
-		var $container = $(document.getElementById(config.domId));
-// 2016-06-03
-		// Почему-то кнопка в шапке инициализируется дважды.
-		// Это происходит только в шапке, другие кнопки инициализируются правильно, единократно.
-		// 2016-11-25
-		// Сегодня проверил — всё то же самое.
-		/** @type {String} */
-		var CLASS = 'dfe-amazon-login';
-		if (!$container.hasClass(CLASS)) {
-			$container.addClass(CLASS);
-			switch (config.type) {
-				case 'L':
-					$('a', $container).click(login);
-					break;
-				case 'N':
+		var $c = $(element);
+		if ($c.closest('.nav-sections').length) {
+			element.id += '-nav-sections';
+		}
+		else if ($c.closest('.page-header').length) {
+			element.id += '-page-header';
+		}
+		switch (config.type) {
+			case 'L':
+			case 'U':
+				$('a', $c).click(login);
+				break;
+			case 'N':
+				/**
+				 * 2016-06-03
+				 * Сделал по аналогии с
+				 * https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Login/Script.php#L42
+				 *https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Script.php#L56
+				 */
+				/** @type {String} */
+				var widgetUrl = df.a.ccClean('/', [
+					'https://static-na.payments-amazon.com/OffAmazonPayments/us'
+					,config.sandbox ? 'sandbox' : null
+					,'js/Widgets.js?sellerId=' + config.merchantId
+				]);
+				require([widgetUrl], function() {
 					/**
 					 * 2016-06-03
-					 * Сделал по аналогии с
-					 * https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Login/Script.php#L42
-					 *https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Script.php#L56
+					 * «Login and Pay with Amazon Integration Guide» → «Widgets» → «Button widgets»
+					 * https://payments.amazon.com/documentation/lpwa/201953980
+					 *
+					 * 2016-06-04
+					 * Вообще говоря, мы не обязаны использовать стандартную кнопку «Login with Amazon»,
+					 * а вместо этого можем использовать ссылку https://www.amazon.com/ap/oa с параметрами:
+					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/implicit_grant.html
+					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_code_grant.html
+					 *
+					 * Например:
+					 * https://www.amazon.com/ap/oa?client_id=foodev
+					 * &scope=profile&response_type=token&state=208257577ll0975l93l2l59l89585709344942
+					 * &redirect_uri=https://client.example.com/redirect/
+					 *
+					 * При этом есть две технологии взаимодействия с сервером Amazon:
+					 * «Authorization Code Grant» и «Implicit Grant», они чуть различаются
+					 * серверной обработкой магазина:
+					 * при «Implicit Grant» надо сделать один дополнительный запрос к API:
+					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_grants.html
+					 *  Виджет ниже использует «Implicit Grant».
 					 */
-					/** @type {String} */
-					var widgetUrl = df.a.ccClean('/', [
-						'https://static-na.payments-amazon.com/OffAmazonPayments/us'
-						,config.sandbox ? 'sandbox' : null
-						,'js/Widgets.js?sellerId=' + config.merchantId
-					]);
-					require([widgetUrl], function() {
-						/**
-						 * 2016-06-03
-						 * «Login and Pay with Amazon Integration Guide» → «Widgets» → «Button widgets»
-						 * https://payments.amazon.com/documentation/lpwa/201953980
-						 *
-						 * 2016-06-04
-						 * Вообще говоря, мы не обязаны использовать стандартную кнопку «Login with Amazon»,
-						 * а вместо этого можем использовать ссылку https://www.amazon.com/ap/oa с параметрами:
-						 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/implicit_grant.html
-						 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_code_grant.html
-						 *
-						 * Например:
-						 * https://www.amazon.com/ap/oa?client_id=foodev
-						 * &scope=profile&response_type=token&state=208257577ll0975l93l2l59l89585709344942
-						 * &redirect_uri=https://client.example.com/redirect/
-						 *
-						 * При этом есть две технологии взаимодействия с сервером Amazon:
-						 * «Authorization Code Grant» и «Implicit Grant», они чуть различаются
-						 * серверной обработкой магазина:
-						 * при «Implicit Grant» надо сделать один дополнительный запрос к API:
-						 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_grants.html
-						 *  Виджет ниже использует «Implicit Grant».
-						 */
-						OffAmazonPayments.Button(
-							config.domId
-							,config.merchantId
-							,df.o.merge(config.widget, {authorization: login})
-						);
-						// 2016-06-03
-						// Помещаем это именно сюда, чтобы стили не применялись
-						// раньше чем кнопка будет построена.
-						// К сожалению, у кнопки не нашёл оповещения о завершении её построения.
-						if (df.d(config.style)) {
-							$container.css($.parseJSON(config.style));
-						}
-						if (df.d(config.css) && $.isPlainObject(config.css)) {
-							$.each(config.css, function(selector, css) {
-								$(selector).css($.parseJSON(css));
-							});
-						}
-					});
-					break;
-				case 'U':
-					break;
-			}
+					OffAmazonPayments.Button(
+						element.id
+						,config.merchantId
+						,df.o.merge(config.widget, {authorization: login})
+					);
+					// 2016-06-03
+					// Помещаем это именно сюда, чтобы стили не применялись
+					// раньше чем кнопка будет построена.
+					// К сожалению, у кнопки не нашёл оповещения о завершении её построения.
+					if (df.d(config.style)) {
+						$c.css($.parseJSON(config.style));
+					}
+					if (df.d(config.css) && $.isPlainObject(config.css)) {
+						$.each(config.css, function(selector, css) {
+							$(selector).css($.parseJSON(css));
+						});
+					}
+				});
 		}
 	});
 });

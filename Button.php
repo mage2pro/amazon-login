@@ -10,10 +10,10 @@ class Button extends \Df\Sso\Button\Js {
 	 * 2016-11-26
 	 * @override
 	 * @see \Df\Sso\Button\Js::jsOptions()
-	 * @used-by \Df\Sso\Button\Js::loggedOut()
+	 * @used-by \Df\Sso\Button\Js::attributes()
 	 * @return array(string => mixed)
 	 */
-	final protected function jsOptions() {return [
+	final protected function jsOptions() {return parent::jsOptions() + [
 		'clientId' => SCredentials::s()->id()
 		,'loggedIn' => df_customer_logged_in()
 		,'merchantId' => SCommon::s()->merchantId()
@@ -52,7 +52,7 @@ class Button extends \Df\Sso\Button\Js {
 	 * 2016-11-26
 	 * @overide
 	 * @see \Df\Sso\Button\Js::redirectShouldBeSecure()
-	 * @used-by \Df\Sso\Button\Js::loggedOut()
+	 * @used-by \Df\Sso\Button\Js::attributes()
 	 * @return bool
 	 */
 	final protected function redirectShouldBeSecure() {return true;}
