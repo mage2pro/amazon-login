@@ -16,7 +16,7 @@ define([
 	 * @param {String} config.widget.size
 	 * @param {?String} config.widget.style
 	 * @param {String} config.widget.type
-	 * @param {HTMLDivElement} element
+	 * @param {HTMLAnchorElement} element
 	 * @returns void
 	 */
 	function(config, element) {
@@ -196,7 +196,7 @@ define([
 		 * потому что на страницах регистрации и аутентификации наша кнопка аутентификации
 		 * может быть одновременно расположена как в шапке, так и над блоком регистрации/аутентификации.
 		 */
-		/** @type {jQuery} HTMLDivElement */
+		/** @type {jQuery} HTMLAnchorElement */
 		var $c = $(element);
 		if ($c.closest('.nav-sections').length) {
 			element.id += '-nav-sections';
@@ -207,7 +207,7 @@ define([
 		switch (config.type) {
 			case 'L':
 			case 'U':
-				$('a', $c).click(login);
+				$c.click(login);
 				break;
 			case 'N':
 				/**
