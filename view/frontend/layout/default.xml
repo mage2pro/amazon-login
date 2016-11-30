@@ -17,13 +17,6 @@ https://github.com/mage2pro/core/blob/1.9.21/Sso/Button.php?ts=4#L63
 -->
 					<argument name='dfConfigPrefix' xsi:type='string'
 					>df_amazon/login/button/header</argument>
-					<argument name='dfJsOptions' xsi:type='array'>
-						<item name='css' xsi:type='array'>
-							<item name='.page-header .header.panel' xsi:type='string'
-							>{"padding-bottom": 0}</item>
-						</item>
-						<item name='style' xsi:type='string'>{"margin-top": "-5px"}</item>
-					</argument>
 				</arguments>				
 			</block>
 		</referenceBlock>

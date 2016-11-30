@@ -5,12 +5,10 @@ define([
 	/**
 	 * @param {Object} config
 	 * @param {String} config.clientId
-	 * @param {?Object} config.css
 	 * @param {String} config.merchantId
 	 * @param {String} config.redirect
 	 * @param {Boolean} config.sandbox
 	 * @param {String} config.selector
-	 * @param {?String} config.style
 	 * @param {String} config.type
 	 * @param {Object} config.widget
 	 * @param {String} config.widget.size
@@ -211,56 +209,48 @@ define([
 			,'js/Widgets.js?sellerId=' + config.merchantId
 		]);
 		require([widgetUrl], function() {
-			switch (config.type) {
-				case 'L':
-				case 'U':
-					$c.click(login);
-					break;
-				case 'N':
-					/**
-					 * 2016-06-03
-					 * Сделал по аналогии с
-					 * https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Login/Script.php#L42
-					 *https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Script.php#L56
-					 *
-					 * «Login and Pay with Amazon Integration Guide» → «Widgets» → «Button widgets»
-					 * https://payments.amazon.com/documentation/lpwa/201953980
-					 *
-					 * 2016-06-04
-					 * Вообще говоря, мы не обязаны использовать стандартную кнопку «Login with Amazon»,
-					 * а вместо этого можем использовать ссылку https://www.amazon.com/ap/oa с параметрами:
-					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/implicit_grant.html
-					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_code_grant.html
-					 *
-					 * Например:
-					 * https://www.amazon.com/ap/oa?client_id=foodev
-					 * &scope=profile&response_type=token&state=208257577ll0975l93l2l59l89585709344942
-					 * &redirect_uri=https://client.example.com/redirect/
-					 *
-					 * При этом есть две технологии взаимодействия с сервером Amazon:
-					 * «Authorization Code Grant» и «Implicit Grant», они чуть различаются
-					 * серверной обработкой магазина:
-					 * при «Implicit Grant» надо сделать один дополнительный запрос к API:
-					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_grants.html
-					 *  Виджет ниже использует «Implicit Grant».
-					 */
-					OffAmazonPayments.Button(
-						element.id
-						,config.merchantId
-						,df.o.merge(config.widget, {authorization: login})
-					);
-					// 2016-06-03
-					// Помещаем это именно сюда, чтобы стили не применялись
-					// раньше чем кнопка будет построена.
-					// К сожалению, у кнопки не нашёл оповещения о завершении её построения.
-					if (df.d(config.style)) {
-						$c.css($.parseJSON(config.style));
-					}
-					if (df.d(config.css) && $.isPlainObject(config.css)) {
-						$.each(config.css, function(selector, css) {
-							$(selector).css($.parseJSON(css));
-						});
-					}
+			if ('N' !== config.type) {
+				$c.click(login);
+			}
+			else {
+				// 2016-11-30
+				// Чтобы кнопка native при загрузке елозила по экрану,
+				// мы в разметке изначально указываем ['style' => 'display:none'],
+				// а затем уже после загрузки JavaScript
+				// удаляем это значение атрибута «style».
+				$c.removeAttr('style');
+				/**
+				 * 2016-06-03
+				 * Сделал по аналогии с
+				 * https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Login/Script.php#L42
+				 *https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Script.php#L56
+				 *
+				 * «Login and Pay with Amazon Integration Guide» → «Widgets» → «Button widgets»
+				 * https://payments.amazon.com/documentation/lpwa/201953980
+				 *
+				 * 2016-06-04
+				 * Вообще говоря, мы не обязаны использовать стандартную кнопку «Login with Amazon»,
+				 * а вместо этого можем использовать ссылку https://www.amazon.com/ap/oa с параметрами:
+				 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/implicit_grant.html
+				 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_code_grant.html
+				 *
+				 * Например:
+				 * https://www.amazon.com/ap/oa?client_id=foodev
+				 * &scope=profile&response_type=token&state=208257577ll0975l93l2l59l89585709344942
+				 * &redirect_uri=https://client.example.com/redirect/
+				 *
+				 * При этом есть две технологии взаимодействия с сервером Amazon:
+				 * «Authorization Code Grant» и «Implicit Grant», они чуть различаются
+				 * серверной обработкой магазина:
+				 * при «Implicit Grant» надо сделать один дополнительный запрос к API:
+				 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_grants.html
+				 *  Виджет ниже использует «Implicit Grant».
+				 */
+				OffAmazonPayments.Button(
+					element.id
+					,config.merchantId
+					,df.o.merge(config.widget, {authorization: login})
+				);
 			}
 		});
 	});
