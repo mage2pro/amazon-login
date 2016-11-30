@@ -204,27 +204,25 @@ define([
 		else if ($c.closest('.page-header').length) {
 			element.id += '-page-header';
 		}
-		switch (config.type) {
-			case 'L':
-			case 'U':
-				$c.click(login);
-				break;
-			case 'N':
-				/**
-				 * 2016-06-03
-				 * Сделал по аналогии с
-				 * https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Login/Script.php#L42
-				 *https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Script.php#L56
-				 */
-				/** @type {String} */
-				var widgetUrl = df.a.ccClean('/', [
-					'https://static-na.payments-amazon.com/OffAmazonPayments/us'
-					,config.sandbox ? 'sandbox' : null
-					,'js/Widgets.js?sellerId=' + config.merchantId
-				]);
-				require([widgetUrl], function() {
+		/** @type {String} */
+		var widgetUrl = df.a.ccClean('/', [
+			'https://static-na.payments-amazon.com/OffAmazonPayments/us'
+			,config.sandbox ? 'sandbox' : null
+			,'js/Widgets.js?sellerId=' + config.merchantId
+		]);
+		require([widgetUrl], function() {
+			switch (config.type) {
+				case 'L':
+				case 'U':
+					$c.click(login);
+					break;
+				case 'N':
 					/**
 					 * 2016-06-03
+					 * Сделал по аналогии с
+					 * https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Login/Script.php#L42
+					 *https://github.com/amzn/amazon-payments-magento-plugin/blob/v1.4.2/app/code/community/Amazon/Payments/Block/Script.php#L56
+					 *
 					 * «Login and Pay with Amazon Integration Guide» → «Widgets» → «Button widgets»
 					 * https://payments.amazon.com/documentation/lpwa/201953980
 					 *
@@ -263,7 +261,7 @@ define([
 							$(selector).css($.parseJSON(css));
 						});
 					}
-				});
-		}
+			}
+		});
 	});
 });
