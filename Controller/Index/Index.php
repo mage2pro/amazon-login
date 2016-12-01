@@ -39,15 +39,6 @@ use Dfe\AmazonLogin\Setup\InstallSchema as Schema;
  */
 class Index extends _P {
 	/**
-	 * 2016-06-04
-	 * @override
-	 * @see _P::customerClass()
-	 * @used-by _P::c()
-	 * @return string
-	 */
-	protected function customerClass() {return Customer::class;}
-
-	/**
 	 * 2016-06-06
 	 * Перечень свойств покупателя, которые надо обновить в Magento
 	 * после их изменения в сторонней системе авторизации.
