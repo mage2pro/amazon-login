@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\AmazonLogin\Controller\Index;
-use Df\Customer\External\ReturnT as _P;
+use Df\Sso\ReturnT as _P;
 use Dfe\AmazonLogin\Customer;
 use Df\Framework\Plugin\View\Layout as PluginLayout;
 use Dfe\AmazonLogin\Setup\InstallSchema as Schema;

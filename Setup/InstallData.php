@@ -1,11 +1,11 @@
 <?php
 namespace Dfe\AmazonLogin\Setup;
-class InstallData extends \Df\Customer\External\Install\Data {
+class InstallData extends \Df\Sso\Install\Data {
 	/**
 	 * 2016-06-05
 	 * @override
-	 * @see \Df\Customer\External\Install\Data::labelPrefix()
-	 * @used-by \Df\Customer\External\Install\Data::attribute()
+	 * @see \Df\Sso\Install\Data::labelPrefix()
+	 * @used-by \Df\Sso\Install\Data::attribute()
 	 * @return string
 	 */
 	protected function labelPrefix() {return 'Amazon';}
@@ -13,8 +13,8 @@ class InstallData extends \Df\Customer\External\Install\Data {
 	/**
 	 * 2016-06-05
 	 * @override
-	 * @see \Df\Customer\External\Install\Data::schemaClass()
-	 * @used-by \Df\Customer\External\Install\Data::schema()
+	 * @see \Df\Sso\Install\Data::schemaClass()
+	 * @used-by \Df\Sso\Install\Data::schema()
 	 * @return string
 	 */
 	protected function schemaClass() {return InstallSchema::class;}

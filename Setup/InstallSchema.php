@@ -1,10 +1,10 @@
 <?php
 namespace Dfe\AmazonLogin\Setup;
-class InstallSchema extends \Df\Customer\External\Install\Schema {
+class InstallSchema extends \Df\Sso\Install\Schema {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @used-by \Df\Customer\External\InstallSchema::install()
+	 * @used-by \Df\Sso\Install\Schema::install()
 	 * @return string
 	 */
 	public function fId() {return self::F__ID;}
@@ -12,7 +12,7 @@ class InstallSchema extends \Df\Customer\External\Install\Schema {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @used-by \Df\Customer\External\InstallSchema::install()
+	 * @used-by \Df\Sso\Install\Schema::install()
 	 * @return string
 	 */
 	public function fName() {return self::F__NAME;}

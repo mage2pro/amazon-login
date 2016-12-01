@@ -2,12 +2,12 @@
 namespace Dfe\AmazonLogin;
 use Df\Amazon\Settings as S;
 use Dfe\AmazonLogin\Settings\Credentials;
-class Customer extends \Df\Customer\External\Customer {
+class Customer extends \Df\Sso\Customer {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see \Df\Customer\External\Customer::email()
-	 * @used-by \Df\Customer\External\ReturnT::customerData()
+	 * @see \Df\Sso\Customer::email()
+	 * @used-by \Df\Sso\ReturnT::customerData()
 	 * @return string|null
 	 */
 	public function email() {return $this->p('email');}
@@ -15,8 +15,8 @@ class Customer extends \Df\Customer\External\Customer {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see \Df\Customer\External\Customer::id()
-	 * @used-by \Df\Customer\External\ReturnT::register()
+	 * @see \Df\Sso\Customer::id()
+	 * @used-by \Df\Sso\ReturnT::register()
 	 * @return string|null
 	 */
 	public function id() {return $this->p('user_id');}
@@ -24,7 +24,7 @@ class Customer extends \Df\Customer\External\Customer {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see \Df\Customer\External\Customer::nameFirst()
+	 * @see \Df\Sso\Customer::nameFirst()
 	 * @return string
 	 */
 	public function nameFirst() {return df_first($this->nameA());}
@@ -32,7 +32,7 @@ class Customer extends \Df\Customer\External\Customer {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see \Df\Customer\External\Customer::nameLast()
+	 * @see \Df\Sso\Customer::nameLast()
 	 * @return string
 	 */
 	public function nameLast() {return df_last($this->nameA());}
@@ -56,8 +56,8 @@ class Customer extends \Df\Customer\External\Customer {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see \Df\Customer\External\Customer::validate()
-	 * @used-by \Df\Customer\External\ReturnT::c()
+	 * @see \Df\Sso\Customer::validate()
+	 * @used-by \Df\Sso\ReturnT::c()
 	 * @return void
 	 * @throws \Exception
 	 */
