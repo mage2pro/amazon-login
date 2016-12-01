@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\AmazonLogin\Controller\Index;
-use Df\Customer\External\ReturnT;
+use Df\Customer\External\ReturnT as _P;
 use Dfe\AmazonLogin\Customer;
 use Df\Framework\Plugin\View\Layout as PluginLayout;
 use Dfe\AmazonLogin\Setup\InstallSchema as Schema;
@@ -37,12 +37,12 @@ use Dfe\AmazonLogin\Setup\InstallSchema as Schema;
  *
  * @method \Dfe\AmazonLogin\Customer c()
  */
-class Index extends ReturnT {
+class Index extends _P {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see ReturnT::customerClass()
-	 * @used-by ReturnT::c()
+	 * @see _P::customerClass()
+	 * @used-by _P::c()
 	 * @return string
 	 */
 	protected function customerClass() {return Customer::class;}
@@ -61,8 +61,8 @@ class Index extends ReturnT {
 	 * потому что Amazon может вернуть в качестве имени просто «dfediuk»,
 	 * и тогда мы перетрём в Magento реальное имя покупателя (ранее введённое им в Magento).
 	 *
-	 * @see ReturnT::customerFieldsToSync()
-	 * @used-by ReturnT::customer()
+	 * @see _P::customerFieldsToSync()
+	 * @used-by _P::customer()
 	 * @return string[]
 	 */
 	protected function customerFieldsToSync() {return ['email'];}
@@ -70,8 +70,8 @@ class Index extends ReturnT {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see customerIdFieldName()
-	 * @used-by customer()
+	 * @see _P::customerIdFieldName()
+	 * @used-by _P::customer()
 	 * @return string
 	 */
 	protected function customerIdFieldName() {return Schema::F__ID;}
@@ -84,8 +84,8 @@ class Index extends ReturnT {
 	 * а в случае с Amazon мы гарантированно можем получить точный адрес из профиля Amazon,
 	 * поэтому нам нет никакого смысла забивать систему неточным автоматическим адресом.
 	 * @override
-	 * @used-by needCreateAddress()
-	 * @used-by register()
+	 * @see _P::needCreateAddress()
+	 * @used-by _P::register()
 	 * @return bool
 	 */
 	protected function needCreateAddress() {return false;}
@@ -93,8 +93,8 @@ class Index extends ReturnT {
 	/**
 	 * 2016-06-06
 	 * @override
-	 * @see postProcess()
-	 * @used-by execute()
+	 * @see _P::postProcess()
+	 * @used-by _P::execute()
 	 * @return void
 	 */
 	protected function postProcess() {df_cookie_m()->setPublicCookie(
@@ -105,8 +105,8 @@ class Index extends ReturnT {
 	 * 2016-06-05
 	 * https://code.dmitry-fedyuk.com/m2e/login-and-pay-with-amazon/blob/4f911a0d/view/frontend/web/login.js#L232
 	 * @override
-	 * @see redirectUrlKey()
-	 * @used-by execute()
+	 * @see _P::redirectUrlKey()
+	 * @used-by _P::execute()
 	 * @return string
 	 */
 	protected function redirectUrlKey() {return 'state';}
