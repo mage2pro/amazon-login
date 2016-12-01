@@ -3,14 +3,15 @@
 // «Login with Amazon» button
 namespace Dfe\AmazonLogin;
 use Df\Amazon\Settings as SCommon;
+use Df\Sso\Button\Js as _P;
 use Dfe\AmazonLogin\Settings\Credentials as SCredentials;
 /** @method \Dfe\AmazonLogin\Settings\Button s() */
-class Button extends \Df\Sso\Button\Js {
+class Button extends _P {
 	/**
 	 * 2016-11-26
 	 * @override
-	 * @see \Df\Sso\Button\Js::jsOptions()
-	 * @used-by \Df\Sso\Button\Js::attributes()
+	 * @see _P::jsOptions()
+	 * @used-by _P::attributes()
 	 * @return array(string => mixed)
 	 */
 	final protected function jsOptions() {return parent::jsOptions() + [
@@ -51,8 +52,8 @@ class Button extends \Df\Sso\Button\Js {
 	/**
 	 * 2016-11-26
 	 * @overide
-	 * @see \Df\Sso\Button\Js::redirectShouldBeSecure()
-	 * @used-by \Df\Sso\Button\Js::attributes()
+	 * @see _P::redirectShouldBeSecure()
+	 * @used-by _P::attributes()
 	 * @return bool
 	 */
 	final protected function redirectShouldBeSecure() {return true;}
