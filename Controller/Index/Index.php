@@ -41,8 +41,8 @@ class Index extends ReturnT {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see \Df\Customer\External\ReturnT::customerClass()
-	 * @used-by \Df\Customer\External\ReturnT::c()
+	 * @see ReturnT::customerClass()
+	 * @used-by ReturnT::c()
 	 * @return string
 	 */
 	protected function customerClass() {return Customer::class;}
@@ -61,8 +61,8 @@ class Index extends ReturnT {
 	 * потому что Amazon может вернуть в качестве имени просто «dfediuk»,
 	 * и тогда мы перетрём в Magento реальное имя покупателя (ранее введённое им в Magento).
 	 *
-	 * @see \Df\Customer\External\ReturnT::customerFieldsToSync()
-	 * @used-by \Df\Customer\External\ReturnT::customer()
+	 * @see ReturnT::customerFieldsToSync()
+	 * @used-by ReturnT::customer()
 	 * @return string[]
 	 */
 	protected function customerFieldsToSync() {return ['email'];}
@@ -70,8 +70,8 @@ class Index extends ReturnT {
 	/**
 	 * 2016-06-04
 	 * @override
-	 * @see \Df\Customer\External\ReturnT::customerIdFieldName()
-	 * @used-by \Df\Customer\External\ReturnT::customer()
+	 * @see customerIdFieldName()
+	 * @used-by customer()
 	 * @return string
 	 */
 	protected function customerIdFieldName() {return Schema::F__ID;}
@@ -84,8 +84,8 @@ class Index extends ReturnT {
 	 * а в случае с Amazon мы гарантированно можем получить точный адрес из профиля Amazon,
 	 * поэтому нам нет никакого смысла забивать систему неточным автоматическим адресом.
 	 * @override
-	 * @used-by \Df\Customer\External\ReturnT::needCreateAddress()
-	 * @used-by \Df\Customer\External\ReturnT::register()
+	 * @used-by needCreateAddress()
+	 * @used-by register()
 	 * @return bool
 	 */
 	protected function needCreateAddress() {return false;}
@@ -93,8 +93,8 @@ class Index extends ReturnT {
 	/**
 	 * 2016-06-06
 	 * @override
-	 * @see \Df\Customer\External\ReturnT::postProcess()
-	 * @used-by \Df\Customer\External\ReturnT::execute()
+	 * @see postProcess()
+	 * @used-by execute()
 	 * @return void
 	 */
 	protected function postProcess() {df_cookie_m()->setPublicCookie(
@@ -105,8 +105,8 @@ class Index extends ReturnT {
 	 * 2016-06-05
 	 * https://code.dmitry-fedyuk.com/m2e/login-and-pay-with-amazon/blob/4f911a0d/view/frontend/web/login.js#L232
 	 * @override
-	 * @see \Df\Customer\External\ReturnT::redirectUrlKey()
-	 * @used-by \Df\Customer\External\ReturnT::execute()
+	 * @see redirectUrlKey()
+	 * @used-by execute()
 	 * @return string
 	 */
 	protected function redirectUrlKey() {return 'state';}
