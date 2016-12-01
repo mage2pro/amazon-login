@@ -7,7 +7,7 @@ class Customer extends \Df\Sso\Customer {
 	 * 2016-06-04
 	 * @override
 	 * @see \Df\Sso\Customer::email()
-	 * @used-by \Df\Sso\ReturnT::customerData()
+	 * @used-by \Df\Sso\CustomerReturn::customerData()
 	 * @return string|null
 	 */
 	public function email() {return $this->p('email');}
@@ -16,7 +16,7 @@ class Customer extends \Df\Sso\Customer {
 	 * 2016-06-04
 	 * @override
 	 * @see \Df\Sso\Customer::id()
-	 * @used-by \Df\Sso\ReturnT::register()
+	 * @used-by \Df\Sso\CustomerReturn::register()
 	 * @return string|null
 	 */
 	public function id() {return $this->p('user_id');}
@@ -57,7 +57,7 @@ class Customer extends \Df\Sso\Customer {
 	 * 2016-06-04
 	 * @override
 	 * @see \Df\Sso\Customer::validate()
-	 * @used-by \Df\Sso\ReturnT::c()
+	 * @used-by \Df\Sso\CustomerReturn::c()
 	 * @return void
 	 * @throws \Exception
 	 */
