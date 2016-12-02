@@ -2,7 +2,6 @@
 namespace Dfe\AmazonLogin\Controller\Index;
 use Df\Sso\CustomerReturn as _P;
 use Df\Framework\Plugin\View\Layout as PluginLayout;
-use Dfe\AmazonLogin\Setup\InstallSchema as Schema;
 /**
  * 2016-06-04
  * «Integrate with Your Existing Account System»
@@ -80,9 +79,7 @@ class Index extends _P {
 	 * @used-by _P::execute()
 	 * @return void
 	 */
-	protected function postProcess() {df_cookie_m()->setPublicCookie(
-		PluginLayout::NEED_UPDATE_CUSTOMER_DATA, 1, df_cookie_metadata_standard()
-	);}
+	protected function postProcess() {df_cookie_set_js(PluginLayout::NEED_UPDATE_CUSTOMER_DATA, 1);}
 
 	/**
 	 * 2016-06-05
