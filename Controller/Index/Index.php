@@ -1,7 +1,6 @@
 <?php
 namespace Dfe\AmazonLogin\Controller\Index;
 use Df\Sso\CustomerReturn as _P;
-use Dfe\AmazonLogin\Customer;
 use Df\Framework\Plugin\View\Layout as PluginLayout;
 use Dfe\AmazonLogin\Setup\InstallSchema as Schema;
 /**
@@ -56,16 +55,9 @@ class Index extends _P {
 	 * @used-by _P::customer()
 	 * @return string[]
 	 */
-	protected function customerFieldsToSync() {return ['email'];}
-
-	/**
-	 * 2016-06-04
-	 * @override
-	 * @see _P::customerIdFieldName()
-	 * @used-by _P::customer()
-	 * @return string
-	 */
-	protected function customerIdFieldName() {return Schema::F__ID;}
+	protected function customerFieldsToSync() {return
+		array_merge(['email'], parent::customerFieldsToSync())
+	;}
 
 	/**
 	 * 2016-06-05
