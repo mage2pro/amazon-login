@@ -10,7 +10,7 @@ class Customer extends \Df\Sso\Customer {
 	 * @used-by \Df\Sso\CustomerReturn::customerData()
 	 * @return string|null
 	 */
-	public function email() {return $this->p('email');}
+	function email() {return $this->p('email');}
 
 	/**
 	 * 2016-06-04
@@ -19,7 +19,7 @@ class Customer extends \Df\Sso\Customer {
 	 * @used-by \Df\Sso\CustomerReturn::register()
 	 * @return string|null
 	 */
-	public function id() {return $this->p('user_id');}
+	function id() {return $this->p('user_id');}
 
 	/**
 	 * 2016-06-04
@@ -27,7 +27,7 @@ class Customer extends \Df\Sso\Customer {
 	 * @see \Df\Sso\Customer::nameFirst()
 	 * @return string
 	 */
-	public function nameFirst() {return df_first($this->nameA());}
+	function nameFirst() {return df_first($this->nameA());}
 
 	/**
 	 * 2016-06-04
@@ -35,14 +35,14 @@ class Customer extends \Df\Sso\Customer {
 	 * @see \Df\Sso\Customer::nameLast()
 	 * @return string
 	 */
-	public function nameLast() {return df_last($this->nameA());}
+	function nameLast() {return df_last($this->nameA());}
 
 	/**
 	 * 2016-06-04
 	 * @used-by \Dfe\FacebookLogin\Controller\Index\Index::customerData()
 	 * @return string
 	 */
-	public function nameFull() {return $this->p('name');}
+	function nameFull() {return $this->p('name');}
 
 	/**
 	 * 2016-06-05
@@ -51,7 +51,7 @@ class Customer extends \Df\Sso\Customer {
 	 * @used-by \Dfe\AmazonLogin\Controller\Index\Index::addressData()
 	 * @return string|null
 	 */
-	public function postalCode() {return $this->p('postal_code');}
+	function postalCode() {return $this->p('postal_code');}
 
 	/**
 	 * 2016-06-04
@@ -61,7 +61,7 @@ class Customer extends \Df\Sso\Customer {
 	 * @return void
 	 * @throws \Exception
 	 */
-	public function validate() {
+	function validate() {
 		/**
 		 * «If the user did not grant the request for access, or an error occurs,
 		 * the authorization service will redirect the user-agent (a user's browser)

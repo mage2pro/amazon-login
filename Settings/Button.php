@@ -9,7 +9,7 @@ final class Button extends \Df\Sso\Settings\Button {
 	 * @override
 	 * @return string
 	 */
-	public function label() {return UNL::isNative($this->type()) ? '' : parent::label();}
+	function label() {return UNL::isNative($this->type()) ? '' : parent::label();}
 
 	/**
 	 * 2016-11-25
@@ -17,7 +17,7 @@ final class Button extends \Df\Sso\Settings\Button {
 	 * @used-by \Dfe\AmazonLogin\Button::loggedOut()
 	 * @return string
 	 */
-	public function nativeColor() {return $this->v();}
+	function nativeColor() {return $this->v();}
 
 	/**
 	 * 2016-11-25
@@ -25,7 +25,7 @@ final class Button extends \Df\Sso\Settings\Button {
 	 * @used-by \Dfe\AmazonLogin\Button::loggedOut()
 	 * @return string
 	 */
-	public function nativeSize() {return $this->v();}
+	function nativeSize() {return $this->v();}
 
 	/**
 	 * 2016-11-25
@@ -33,5 +33,5 @@ final class Button extends \Df\Sso\Settings\Button {
 	 * @used-by \Dfe\AmazonLogin\Button::loggedOut()
 	 * @return string
 	 */
-	public function nativeType() {return $this->v();}
+	function nativeType() {return $this->v();}
 }

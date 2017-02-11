@@ -8,14 +8,14 @@ final class Credentials extends \Df\Config\Settings {
 	 * «Client ID»
 	 * @return string
 	 */
-	public function id() {return $this->v();}
+	function id() {return $this->v();}
 
 	/**
 	 * 2016-06-02
 	 * «Client Secret»
 	 * @return string
 	 */
-	public function secret() {return $this->p();}
+	function secret() {return $this->p();}
 
 	/**
 	 * 2016-06-02
