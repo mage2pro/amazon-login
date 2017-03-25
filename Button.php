@@ -1,11 +1,13 @@
 <?php
-// 2016-06-02
-// «Login with Amazon» button
 namespace Dfe\AmazonLogin;
 use Df\Amazon\Settings as SCommon;
 use Df\Sso\Button\Js as _P;
 use Dfe\AmazonLogin\Settings\Credentials as SCredentials;
-/** @method \Dfe\AmazonLogin\Settings\Button s() */
+/**
+ * 2016-06-02
+ * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
+ * @method \Dfe\AmazonLogin\Settings\Button s()
+ */
 class Button extends _P {
 	/**
 	 * 2016-11-26
