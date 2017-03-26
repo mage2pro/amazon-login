@@ -2,7 +2,7 @@
 // 2016-11-25
 /** @used-by \Df\Sso\Button::s() */
 namespace Dfe\AmazonLogin\Settings;
-use \Df\Sso\Source\Button\Type\UNL;
+use Df\Sso\Source\Button\Type\UNL;
 final class Button extends \Df\Sso\Settings\Button {
 	/**
 	 * 2016-11-29
