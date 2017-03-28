@@ -2,7 +2,7 @@
 // 2016-11-25
 // https://payments.amazon.com/developer/documentation/lpwa/201953980
 namespace Dfe\AmazonLogin\Source\Button\Native;
-final class Color extends \Df\Config\SourceT {
+final class Color extends \Df\Config\Source {
 	/**
 	 * 2016-11-25
 	 * @override
