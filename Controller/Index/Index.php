@@ -77,7 +77,6 @@ class Index extends _P {
 	 * @override
 	 * @see _P::postProcess()
 	 * @used-by _P::execute()
-	 * @return void
 	 */
 	protected function postProcess() {df_cookie_set_js(PluginLayout::NEED_UPDATE_CUSTOMER_DATA, 1);}
 

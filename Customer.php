@@ -58,7 +58,6 @@ class Customer extends \Df\Sso\Customer {
 	 * @override
 	 * @see \Df\Sso\Customer::validate()
 	 * @used-by \Df\Sso\CustomerReturn::c()
-	 * @return void
 	 * @throws \Exception
 	 */
 	function validate() {
