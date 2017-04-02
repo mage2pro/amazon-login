@@ -13,4 +13,16 @@
 	}]
 	,"require": {"mage2pro/amazon": ">=1.0.14", "mage2pro/core": ">=2.4.19"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\AmazonLogin\\": ""}}
+	,"keywords": [		
+		"Amazon"
+		,"Amazon API"
+		,"Authentication"
+		,"eCommerce"
+		,"Login with Amazon"
+		,"Magento"
+		,"Magento 2"
+		,"Magento extension"
+		,"OAuth2"
+		,"Single sign-on"
+	]
 }
