@@ -4,6 +4,7 @@ use Df\Sso\CustomerReturn as _P;
 use Df\Framework\Plugin\View\Layout as PluginLayout;
 /**
  * 2016-06-04
+ * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
  * «Integrate with Your Existing Account System»
  * https://login.amazon.com/documentation/combining-user-accounts
  *
