@@ -55,7 +55,7 @@ class Index extends _P {
 	 * @used-by _P::customer()
 	 * @return string[]
 	 */
-	protected function customerFieldsToSync() {return
+	final protected function customerFieldsToSync() {return
 		array_merge(['email'], parent::customerFieldsToSync())
 	;}
 
@@ -71,7 +71,7 @@ class Index extends _P {
 	 * @used-by _P::register()
 	 * @return bool
 	 */
-	protected function needCreateAddress() {return false;}
+	final protected function needCreateAddress() {return false;}
 
 	/**
 	 * 2016-06-06
@@ -79,7 +79,7 @@ class Index extends _P {
 	 * @see _P::postProcess()
 	 * @used-by _P::execute()
 	 */
-	protected function postProcess() {df_cookie_set_js(PluginLayout::NEED_UPDATE_CUSTOMER_DATA, 1);}
+	final protected function postProcess() {df_cookie_set_js(PluginLayout::NEED_UPDATE_CUSTOMER_DATA, 1);}
 
 	/**
 	 * 2016-06-05
@@ -89,5 +89,5 @@ class Index extends _P {
 	 * @used-by _P::execute()
 	 * @return string
 	 */
-	protected function redirectUrlKey() {return 'state';}
+	final protected function redirectUrlKey() {return 'state';}
 }
