@@ -182,48 +182,6 @@ class Customer extends \Df\Sso\Customer {
 	;}, [$path]), $key, $d);}
 
 	/**
-	 * 2016-06-04
-	 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/access_token.html
-	 * «After users log in, they are returned to your website or mobile app.
-	 * At this point, your client can obtain an access token
-	 * by calling the Login with Amazon authorization service.
-	 * That token allows clients to access the customer's name and email address
-	 * from their customer profile.»
-	 * «Access tokens are only valid for sixty minutes
-	 * and are specific to the user logging in and the data the app requested
-	 * when it triggered the login.»
-	 *
-	 * В принципе, при необходимости мы можем обменять полученный сейчас временный токен
-	 * (который действителен 1 час) на безлимитный:
-	 * «A refresh token allows a website to request a new access token,
-	 * even if the access token has expired.
-	 * Refresh tokens follow the same format as access tokens,
-	 * except they begin with the string Atzr|.
-	 * Refresh tokens are valid indefinitely,
-	 * unless the user has removed the website or mobile app
-	 * from the list of allowed apps for their account.
-	 * Refresh tokens have a maximum size of 2048 bytes.
-	 * A refresh token is specifically assigned to one client
-	 * and cannot be used by another client.»
-	 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/refresh_token.html
-	 *
-	 * Не, в данном конкретном случае получить refresh token не можем:
-	 * «Refresh tokens are returned only in the Authorization Code Grant».
-	 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/refresh_token.html
-	 *
-	 * Есть две технологии взаимодействия с сервером Amazon:
-	 * «Authorization Code Grant» и «Implicit Grant», они чуть различаются
-	 * серверной обработкой магазина:
-	 * при «Implicit Grant» надо сделать один дополнительный запрос к API:
-	 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_grants.html
-	 * Мы используем «Implicit Grant», поэтому получить refresh token не можем.
-	 * Ну не особо и надо.
-	 *
-	 * @return string
-	 */
-	private function token() {return df_request('access_token');}
-
-	/**
 	 * 2016-06-03
 	 * @param string $path
 	 * @return string
@@ -235,7 +193,45 @@ class Customer extends \Df\Sso\Customer {
 			);
 		}
 		if (!isset($this->_urlQuery)) {
-			$this->_urlQuery = '?' . http_build_query(['access_token' => $this->token()]);
+			/**
+			 * 2016-06-04
+			 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/access_token.html
+			 * «After users log in, they are returned to your website or mobile app.
+			 * At this point, your client can obtain an access token
+			 * by calling the Login with Amazon authorization service.
+			 * That token allows clients to access the customer's name and email address
+			 * from their customer profile.»
+			 * «Access tokens are only valid for sixty minutes
+			 * and are specific to the user logging in and the data the app requested
+			 * when it triggered the login.»
+			 *
+			 * В принципе, при необходимости мы можем обменять полученный сейчас временный токен
+			 * (который действителен 1 час) на безлимитный:
+			 * «A refresh token allows a website to request a new access token,
+			 * even if the access token has expired.
+			 * Refresh tokens follow the same format as access tokens,
+			 * except they begin with the string Atzr|.
+			 * Refresh tokens are valid indefinitely,
+			 * unless the user has removed the website or mobile app
+			 * from the list of allowed apps for their account.
+			 * Refresh tokens have a maximum size of 2048 bytes.
+			 * A refresh token is specifically assigned to one client
+			 * and cannot be used by another client.»
+			 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/refresh_token.html
+			 *
+			 * Не, в данном конкретном случае получить refresh token не можем:
+			 * «Refresh tokens are returned only in the Authorization Code Grant».
+			 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/refresh_token.html
+			 *
+			 * Есть две технологии взаимодействия с сервером Amazon:
+			 * «Authorization Code Grant» и «Implicit Grant», они чуть различаются
+			 * серверной обработкой магазина:
+			 * при «Implicit Grant» надо сделать один дополнительный запрос к API:
+			 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/authorization_grants.html
+			 * Мы используем «Implicit Grant», поэтому получить refresh token не можем.
+			 * Ну не особо и надо.
+			 */
+			$this->_urlQuery = '?' . http_build_query(['access_token' => df_request('access_token')]);
 		}
 		return $this->_urlBase . $path . $this->_urlQuery;
 	}
