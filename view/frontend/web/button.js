@@ -1,7 +1,5 @@
 // 2016-06-03
-define([
-	'df', 'jquery'
-], function(df, $) {return (
+define(['df', 'jquery'], function(df, $) {return (
 	/**
 	 * @param {Object} config
 	 * @param {String} config.clientId
@@ -94,11 +92,11 @@ define([
 					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/customer_profile.html
 					 *
 					 * Например:
-						{
-							"user_id": "amzn1.account.AGM6GZJB6GO42REKZDL33HG7GEJA",
-							"name": "Jack London",
-							"email": "test-customer@mage2.pro"
-						}
+					 *	{
+					 *		"user_id": "amzn1.account.AGM6GZJB6GO42REKZDL33HG7GEJA",
+					 *		"name": "Jack London",
+					 *		"email": "test-customer@mage2.pro"
+					 *	}
 					 */
 					,'profile'
 					/**
@@ -111,12 +109,12 @@ define([
 					 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/customer_profile.html
 					 *
 					 * Например:
-						{
-							"user_id": "amzn1.account.AGM6GZJB6GO42REKZDL33HG7GEJA",
-							"name": "Jack London",
-							"email": "test-customer@mage2.pro",
-							"postal_code": "98101"
-						}
+					 *	{
+					 *		"user_id": "amzn1.account.AGM6GZJB6GO42REKZDL33HG7GEJA",
+					 *		"name": "Jack London",
+					 *		"email": "test-customer@mage2.pro",
+					 *		"postal_code": "98101"
+					 *	}
 					 *
 					 * Сначала я подумал, что запрашивать почтовый индекс тут необязательно,
 					 * потому что мы уже запросили полномочия «payments:shipping_address»,
@@ -181,7 +179,7 @@ define([
 		 * 2016-11-28
 		 * Система клонирует меню из блока «header.links» в видимый только в мобильном режиме
 		 * (но присутствующий в DOM и в настольном режиме) блок «store.links»:
-				$('.panel.header > .header.links').clone().appendTo('#store\\.links');
+		 *		$('.panel.header > .header.links').clone().appendTo('#store\\.links');
 		 * https://github.com/magento/magento2/blob/2.1.2/app/design/frontend/Magento/blank/web/js/theme.js#L26-L26
 		 * https://mage2.pro/t/2336
 		 * По этой причине у нас сразу 2 одинаковых кнопки в шапке: одна видимая и вторая — невидимая.
