@@ -49,7 +49,7 @@ class Button extends _P {
 	 * @used-by \Df\Sso\Button::_toHtml()
 	 * @return string
 	 */
-	final protected function loggedIn() {return df_x_magento_init(__CLASS__, 'invalidate');}
+	final protected function loggedIn() {return df_js(__CLASS__, 'invalidate');}
 
 	/**
 	 * 2016-11-26
