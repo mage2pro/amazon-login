@@ -86,7 +86,7 @@ class Index extends _P {
 	 * https://code.dmitry-fedyuk.com/m2e/login-and-pay-with-amazon/blob/4f911a0d/view/frontend/web/login.js#L232
 	 * @override
 	 * @see _P::redirectUrlKey()
-	 * @used-by _P::execute()
+	 * @used-by _P::redirectUrl()
 	 * @return string
 	 */
 	final protected function redirectUrlKey() {return 'state';}
