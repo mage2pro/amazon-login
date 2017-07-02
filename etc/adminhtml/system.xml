@@ -8,7 +8,6 @@
 			<group
 				id='login'
 				translate='label'
-				type='text'
 				sortOrder='2'
 				showInDefault='1'
 				showInWebsite='1'
@@ -33,7 +32,6 @@
 				<group
 					id='credentials'
 					translate='label'
-					type='text'
 					sortOrder='1'
 					showInDefault='1'
 					showInWebsite='1'
@@ -81,7 +79,6 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 				<group
 					id='button'
 					translate='label'
-					type='text'
 					sortOrder='2'
 					showInDefault='1'
 					showInWebsite='1'
@@ -202,7 +199,6 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 					<group
 						id='loginPage'
 						translate='label'
-						type='text'
 						sortOrder='2'
 						showInDefault='1'
 						showInWebsite='1'
@@ -311,7 +307,6 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 					<group
 						id='registratonPage'
 						translate='label'
-						type='text'
 						sortOrder='3'
 						showInDefault='1'
 						showInWebsite='1'
