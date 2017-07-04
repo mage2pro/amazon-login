@@ -7,23 +7,19 @@
         <section id='df_amazon'>
 			<group
 				id='login'
-				translate='label'
+				showInDefault='1' showInStore='1' showInWebsite='1'
 				sortOrder='2'
-				showInDefault='1'
-				showInWebsite='1'
-				showInStore='1'
+				translate='label'
 			>
 				<dfExtension>Dfe_AmazonLogin</dfExtension>
 				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<label>Login</label>
 				<field
 					id='enable'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='1'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='1'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Enable?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -31,22 +27,18 @@
 				</field>
 				<group
 					id='credentials'
-					translate='label'
+					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='1'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
+					translate='label'
 				>
 					<depends><field id='enable'>1</field></depends>
 					<label>Credentials</label>
 					<field
 						id='id'
+						showInDefault='1' showInStore='1' showInWebsite='1'
+						sortOrder='1'
 						translate='label'
 						type='text'
-						sortOrder='1'
-						showInDefault='1'
-						showInWebsite='1'
-						showInStore='1'
 					>
 						<label>Client ID</label>
 						<comment><![CDATA[<a href='https://mage2.pro/t/1705' target='_blank'>Where to find it?</a>]]></comment>
@@ -54,12 +46,10 @@
 					</field>
 					<field
 						id='secret'
+						showInDefault='1' showInStore='1' showInWebsite='1'
+						sortOrder='2'
 						translate='label'
 						type='obscure'
-						sortOrder='2'
-						showInDefault='1'
-						showInWebsite='1'
-						showInStore='1'
 					>
 						<label>Client Secret</label>
 						<comment><![CDATA[<a href='https://mage2.pro/t/1706' target='_blank'>Where to find it?</a>]]></comment>
@@ -78,33 +68,27 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 				</group>
 				<group
 					id='button'
-					translate='label'
+					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='2'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
+					translate='label'
 				>
 					<comment><![CDATA[The authentication button (or link) setttings.]]></comment>
 					<depends><field id='enable'>1</field></depends>
 					<label>Button</label>
 					<group
 						id='header'
+						showInDefault='1' showInStore='1' showInWebsite='1'
+						sortOrder='1'
 						translate='label'
 						type='text'
-						sortOrder='1'
-						showInDefault='1'
-						showInWebsite='1'
-						showInStore='1'
 					>
 						<label>Header</label>
 						<field
 							id='enable'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='1'
 							translate='label'
 							type='Df\Framework\Form\Element\Checkbox'
-							sortOrder='1'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Enable?</label>
 							<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -112,12 +96,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='type'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='2'
 							translate='label'
 							type='select'
-							sortOrder='2'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Type</label>
 							<source_model>Df\Sso\Source\Button\Type\UNL</source_model>
@@ -130,12 +112,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeType'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='3'
 							translate='label'
 							type='select'
-							sortOrder='3'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Native Type</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Type</source_model>
@@ -147,12 +127,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeSize'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='4'
 							translate='label'
 							type='select'
-							sortOrder='4'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Size</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Size</source_model>
@@ -164,12 +142,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeColor'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='5'
 							translate='label'
 							type='select'
-							sortOrder='5'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Color</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Color</source_model>
@@ -181,12 +157,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='label'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='6'
 							translate='label'
 							type='text'
-							sortOrder='6'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Label</label>
 							<depends>
@@ -198,21 +172,17 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 					</group>
 					<group
 						id='loginPage'
-						translate='label'
+						showInDefault='1' showInStore='1' showInWebsite='1'
 						sortOrder='2'
-						showInDefault='1'
-						showInWebsite='1'
-						showInStore='1'
+						translate='label'
 					>
 						<label>Login Page</label>
 						<field
 							id='enable'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='1'
 							translate='label'
 							type='Df\Framework\Form\Element\Checkbox'
-							sortOrder='1'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Enable?</label>
 							<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -220,12 +190,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='type'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='2'
 							translate='label'
 							type='select'
-							sortOrder='2'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Type</label>
 							<source_model>Df\Sso\Source\Button\Type\UNL</source_model>
@@ -238,12 +206,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeType'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='3'
 							translate='label'
 							type='select'
-							sortOrder='3'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Native Type</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Type</source_model>
@@ -255,12 +221,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeSize'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='4'
 							translate='label'
 							type='select'
-							sortOrder='4'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Size</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Size</source_model>
@@ -272,12 +236,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeColor'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='5'
 							translate='label'
 							type='select'
-							sortOrder='5'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Color</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Color</source_model>
@@ -289,12 +251,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='label'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='6'
 							translate='label'
 							type='text'
-							sortOrder='6'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Label</label>
 							<depends>
@@ -306,21 +266,17 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 					</group>
 					<group
 						id='registratonPage'
-						translate='label'
+						showInDefault='1' showInStore='1' showInWebsite='1'
 						sortOrder='3'
-						showInDefault='1'
-						showInWebsite='1'
-						showInStore='1'
+						translate='label'
 					>
 						<label>Registration Page</label>
 						<field
 							id='enable'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='1'
 							translate='label'
 							type='Df\Framework\Form\Element\Checkbox'
-							sortOrder='1'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Enable?</label>
 							<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -328,12 +284,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='type'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='2'
 							translate='label'
 							type='select'
-							sortOrder='2'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Type</label>
 							<source_model>Df\Sso\Source\Button\Type\UNL</source_model>
@@ -346,12 +300,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeType'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='3'
 							translate='label'
 							type='select'
-							sortOrder='3'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Native Type</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Type</source_model>
@@ -363,12 +315,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeSize'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='4'
 							translate='label'
 							type='select'
-							sortOrder='4'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Size</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Size</source_model>
@@ -380,12 +330,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='nativeColor'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='5'
 							translate='label'
 							type='select'
-							sortOrder='5'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Color</label>
 							<source_model>Dfe\AmazonLogin\Source\Button\Native\Color</source_model>
@@ -397,12 +345,10 @@ https://github.com/mage2pro/2checkout/blob/1.1.9/etc/adminhtml/system.xml#L103
 						</field>
 						<field
 							id='label'
+							showInDefault='1' showInStore='1' showInWebsite='1'
+							sortOrder='6'
 							translate='label'
 							type='text'
-							sortOrder='6'
-							showInDefault='1'
-							showInWebsite='1'
-							showInStore='1'
 						>
 							<label>Label</label>
 							<depends>
