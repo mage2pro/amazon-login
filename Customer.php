@@ -95,13 +95,13 @@ class Customer extends \Df\Sso\Customer {
 		 *
 		 * Ответ сервера:
 		 * {
-		     "iss":"https://www.amazon.com",
-		     "user_id": "amznl.account.K2LI23KL2LK2",
-		     "aud": "amznl.oa2-client.ASFWDFBRN",
-		     "app_id": "amznl.application.436457DFHDH",
-		     "exp": 3597,
-		     "iat": l3ll280970,
-		  }
+		 *    "iss":"https://www.amazon.com",
+		 *    "user_id": "amznl.account.K2LI23KL2LK2",
+		 *    "aud": "amznl.oa2-client.ASFWDFBRN",
+		 *    "app_id": "amznl.application.436457DFHDH",
+		 *    "exp": 3597,
+		 *    "iat": l3ll280970,
+		 * }
 		 * «Compare the aud value to the client_id you are using for your application.
 		 * If they are different, the access token was not requested by your application,
 		 * and you should not use the access token.»
@@ -132,10 +132,10 @@ class Customer extends \Df\Sso\Customer {
 	 * The access token reflects access permission for that scope.»
 	 *
 	 * Раньше решение было таким:
-		$client = new \Zend_Http_Client;
-		$client->setUri($this->url('user/profile'));
-		$client->setHeaders('Authorization', 'bearer ' . $token);
-		$profile = df_json_decode($client->request()->getBody())
+	 *	$client = new \Zend_Http_Client;
+	 *	$client->setUri($this->url('user/profile'));
+	 *	$client->setHeaders('Authorization', 'bearer ' . $token);
+	 *	$profile = df_json_decode($client->request()->getBody())
 	 *
 	 * Оказывается, мы не обязаны использовать заголовок HTTP «Authorization»,
 	 * а можем вместо этого просто передать токен в URL:
@@ -146,11 +146,11 @@ class Customer extends \Df\Sso\Customer {
 	 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/obtain_customer_profile.html
 	 *
 	 * 2016-06-03
-		{
-			"user_id": "amzn1.account.AGM6GZJB6GO42REKZDL33HG7GEJA",
-			"name": "Jack London",
-			"email": "test-customer@mage2.pro"
-		}
+	 *	{
+	 *		"user_id": "amzn1.account.AGM6GZJB6GO42REKZDL33HG7GEJA",
+	 *		"name": "Jack London",
+	 *		"email": "test-customer@mage2.pro"
+	 *	}
 	 * @var array(string => string) $profile
 	 *
 	 * 2016-06-04
