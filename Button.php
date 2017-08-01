@@ -16,7 +16,7 @@ class Button extends _P {
 	 * @used-by _P::attributes()
 	 * @return array(string => mixed)
 	 */
-	final protected function jsOptions() {return parent::jsOptions() + [
+	final protected function jsOptions() {$s = $this->s(); return parent::jsOptions() + [
 		'clientId' => SCredentials::s()->id()
 		,'loggedIn' => df_customer_logged_in()
 		,'merchantId' => SCommon::s()->merchantId()
@@ -25,11 +25,11 @@ class Button extends _P {
 			// 2016-06-03
 			// «The color parameter is an optional parameter for selecting a button color.»
 			// https://payments.amazon.com/documentation/lpwa/201953980
-			'color' => $this->s()->nativeColor()
+			'color' => $s->nativeColor()
 			// 2016-06-03
 			// «The size parameter is an optional parameter for selecting a button size.»
 			// https://payments.amazon.com/documentation/lpwa/201953980
-			,'size' => $this->s()->nativeSize()
+			,'size' => $s->nativeSize()
 			// 2016-06-03
 			// «The type parameter is an optional parameter
 			// for indicating the type of button image that you want to select for your web page.
@@ -38,7 +38,7 @@ class Button extends _P {
 			// The following table shows the valid type parameter values,
 			// button descriptions, and sample button images.»
 			//	https://payments.amazon.com/documentation/lpwa/201953980
-			,'type' => $this->s()->nativeType()
+			,'type' => $s->nativeType()
 		]
 	];}
 
