@@ -1,5 +1,7 @@
 <?php
 namespace Dfe\AmazonLogin\Setup;
+// 2016-06-04
+/** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class UpgradeSchema extends \Df\Sso\Upgrade\Schema {
 	/**
 	 * 2016-06-04
@@ -9,8 +11,9 @@ class UpgradeSchema extends \Df\Sso\Upgrade\Schema {
 	 * https://mage2.pro/t/129
 	 * Поэтому приходиться укладываться в 30.
 	 * @override
+	 * @see \Df\Sso\Upgrade\Schema::fId()
 	 * @used-by \Df\Sso\Upgrade\Schema::_process()
 	 * @return string
 	 */
-	static function fId() {return 'df_amazon__id';}
+	final static function fId() {return 'df_amazon__id';}
 }
