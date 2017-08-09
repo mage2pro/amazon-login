@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\AmazonLogin\Controller\Index;
-use Df\Sso\CustomerReturn as _P;
 use Df\Framework\Plugin\View\Layout as PluginLayout;
+use Df\Sso\CustomerReturn as _P;
 /**
  * 2016-06-04
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
