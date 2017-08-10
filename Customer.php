@@ -47,7 +47,7 @@ class Customer extends \Df\Sso\Customer {
 	/**
 	 * 2016-06-05
 	 * Мы запрашиваем у посетителя разрешение на получение его почтового индекса здесь:
-	 * https://code.dmitry-fedyuk.com/m2e/login-and-pay-with-amazon/blob/42dcb17/view/frontend/web/login.js#L211
+	 * https://github.com/mage2pro/amazon/blob/42dcb17/view/frontend/web/login.js#L211
 	 * @used-by \Dfe\AmazonLogin\Controller\Index\Index::addressData()
 	 * @return string|null
 	 */

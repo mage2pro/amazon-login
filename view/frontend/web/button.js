@@ -131,7 +131,7 @@ define(['df', 'jquery'], function(df, $) {return (
 					 *
 					 * 2016-06-05
 					 * Мы используем почтовый индекс здесь:
-					 * https://code.dmitry-fedyuk.com/m2e/login-and-pay-with-amazon/blob/42dcb17/Customer.php#L43
+					 * https://github.com/mage2pro/amazon/blob/42dcb17/Customer.php#L43
 					 */
 					,'postal_code'
 				].join(' ')
@@ -141,7 +141,7 @@ define(['df', 'jquery'], function(df, $) {return (
 				 * непосредственно перед авторизацией.
 				 * Когда сервис авторизации вернёт посетителя обратно в наш магазин,
 				 * мы перенаправим посетителя на эту страницу.
-				 * https://code.dmitry-fedyuk.com/m2e/login-and-pay-with-amazon/blob/4f911a0d/Controller/Login/Index.php#L57
+				 * https://github.com/mage2pro/amazon/blob/4f911a0d/Controller/Login/Index.php#L57
 				 *
 				 * «An opaque value used by the client
 				 * to maintain state between this request and the response.
