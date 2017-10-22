@@ -1,5 +1,5 @@
 // 2016-06-03
-define(['df', 'jquery'], function(df, $) {return (
+define(['df', 'df-lodash', 'jquery'], function(df, _, $) {return (
 	/**
 	 * @param {Object} config
 	 * @param {String} config.clientId
@@ -245,9 +245,7 @@ define(['df', 'jquery'], function(df, $) {return (
 				 *  Виджет ниже использует «Implicit Grant».
 				 */
 				OffAmazonPayments.Button(
-					element.id
-					,config.merchantId
-					,df.o.merge(config.widget, {authorization: login})
+					element.id, config.merchantId, _.assign(config.widget, {authorization: login})
 				);
 			}
 		});
