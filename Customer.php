@@ -72,8 +72,7 @@ class Customer extends \Df\Sso\Customer {
 		 * Location: https://client.example.com/cb#error=access_denied
 		 * &state=208257577ll0975l93l2l59l895857093449424
 		 */
-		/** @var string|null $errorCode */
-		$errorCode = df_request('error');
+		$errorCode = df_request('error'); /** @var string|null $errorCode */
 		if ($errorCode) {
 			/** @var string|null $errorDescription */
 			$errorDescription = df_request('error_description', $errorCode);
