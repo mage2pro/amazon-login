@@ -1,7 +1,7 @@
 {
 	"name": "mage2pro/amazon-login"
 	,"version": "1.1.13"
-	,"description": "The «Login with Amazon» extension for Magento 2."
+	,"description": "The «Login with Amazon» extension for Magento 2"
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/amazon-login"
 	,"license": "proprietary"
