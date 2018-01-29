@@ -11,5 +11,5 @@ final class Size extends \Df\Config\Source {
 	 * @see \Dfe\AmazonLogin\Settings\Button::nativeSize()
 	 * @return array(string => string)
 	 */
-	protected function map() {return dfa_combine_self(['small', 'medium', 'large', 'x-large']);}
+	protected function map() {return dfa_combine_self('small', 'medium', 'large', 'x-large');}
 }
