@@ -4,7 +4,7 @@
 	xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd"
 >
 	<router id='standard'>
-		<route id='Dfe_AmazonLogin' frontName='mage2pro-amazon-login'>
+		<route frontName='mage2pro-amazon-login' id='Dfe_AmazonLogin'>
 			<module name='Dfe_AmazonLogin'/>
 		</route>
 	</router>
