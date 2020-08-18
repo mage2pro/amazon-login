@@ -2,7 +2,7 @@
 namespace Dfe\AmazonLogin;
 use Df\Amazon\Settings as S;
 use Dfe\AmazonLogin\Settings\Credentials;
-class Customer extends \Df\Sso\Customer {
+final class Customer extends \Df\Sso\Customer {
 	/**
 	 * 2016-06-04
 	 * @override
