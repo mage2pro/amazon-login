@@ -1,6 +1,6 @@
 <?php
-// 2016-11-25
-// https://payments.amazon.com/developer/documentation/lpwa/201953980
+# 2016-11-25
+# https://payments.amazon.com/developer/documentation/lpwa/201953980
 namespace Dfe\AmazonLogin\Source\Button\Native;
 final class Type extends \Df\Config\Source {
 	/**

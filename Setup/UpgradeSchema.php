@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\AmazonLogin\Setup;
-// 2016-06-04
+# 2016-06-04
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class UpgradeSchema extends \Df\Sso\Upgrade\Schema {
 	/**

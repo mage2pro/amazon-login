@@ -22,21 +22,21 @@ class Button extends _P {
 		,'merchantId' => SCommon::s()->merchantId()
 		,'sandbox' => SCommon::s()->test()
 		,'widget' => [
-			// 2016-06-03
-			// «The color parameter is an optional parameter for selecting a button color.»
-			// https://payments.amazon.com/documentation/lpwa/201953980
+			# 2016-06-03
+			# «The color parameter is an optional parameter for selecting a button color.»
+			# https://payments.amazon.com/documentation/lpwa/201953980
 			'color' => $s->nativeColor()
-			// 2016-06-03
-			// «The size parameter is an optional parameter for selecting a button size.»
-			// https://payments.amazon.com/documentation/lpwa/201953980
+			# 2016-06-03
+			# «The size parameter is an optional parameter for selecting a button size.»
+			# https://payments.amazon.com/documentation/lpwa/201953980
 			,'size' => $s->nativeSize()
-			// 2016-06-03
-			// «The type parameter is an optional parameter
-			// for indicating the type of button image that you want to select for your web page.
-			// Note that if you decide not to specify a value for type,
-			// the LwA (Login with Amazon) button will be set as the default value.
-			// The following table shows the valid type parameter values,
-			// button descriptions, and sample button images.»
+			# 2016-06-03
+			# «The type parameter is an optional parameter
+			# for indicating the type of button image that you want to select for your web page.
+			# Note that if you decide not to specify a value for type,
+			# the LwA (Login with Amazon) button will be set as the default value.
+			# The following table shows the valid type parameter values,
+			# button descriptions, and sample button images.»
 			//	https://payments.amazon.com/documentation/lpwa/201953980
 			,'type' => $s->nativeType()
 		]

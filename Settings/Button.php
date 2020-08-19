@@ -1,5 +1,5 @@
 <?php
-// 2016-11-25
+# 2016-11-25
 /** @used-by \Df\Sso\Button::s() */
 namespace Dfe\AmazonLogin\Settings;
 use Df\Sso\Source\Button\Type\UNL;

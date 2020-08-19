@@ -1,5 +1,5 @@
 <?php
-// 2016-06-02
+# 2016-06-02
 namespace Dfe\AmazonLogin\Settings;
 /** @method static Credentials s() */
 final class Credentials extends \Df\Config\Settings {
