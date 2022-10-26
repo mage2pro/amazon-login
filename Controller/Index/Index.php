@@ -55,9 +55,7 @@ class Index extends _P {
 	 * @used-by _P::customer()
 	 * @return string[]
 	 */
-	final protected function customerFieldsToSync() {return array_merge(
-		['email'], parent::customerFieldsToSync()
-	);}
+	final protected function customerFieldsToSync() {return array_merge(['email'], parent::customerFieldsToSync());}
 
 	/**
 	 * 2016-06-05

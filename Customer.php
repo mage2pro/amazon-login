@@ -45,15 +45,6 @@ final class Customer extends \Df\Sso\Customer {
 	function nameFull() {return $this->p('name');}
 
 	/**
-	 * 2016-06-05
-	 * Мы запрашиваем у посетителя разрешение на получение его почтового индекса здесь:
-	 * https://github.com/mage2pro/amazon/blob/42dcb17/view/frontend/web/login.js#L211
-	 * @used-by \Dfe\AmazonLogin\Controller\Index\Index::addressData()
-	 * @return string|null
-	 */
-	function postalCode() {return $this->p('postal_code');}
-
-	/**
 	 * 2016-06-04
 	 * @override
 	 * @see \Df\Sso\Customer::validate()
