@@ -172,6 +172,7 @@ final class Customer extends \Df\Sso\Customer {
 
 	/**
 	 * 2016-06-03
+	 * @used-by self::response()
 	 */
 	private function url(string $path):string {
 		if (!isset($this->_urlBase)) {
