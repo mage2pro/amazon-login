@@ -16,7 +16,7 @@ class Button extends _P {
 	 * @used-by _P::attributes()
 	 * @return array(string => mixed)
 	 */
-	final protected function jsOptions() {$s = $this->s(); return parent::jsOptions() + [
+	final protected function jsOptions():array {$s = $this->s(); return parent::jsOptions() + [
 		'clientId' => SCredentials::s()->id()
 		,'loggedIn' => df_customer_logged_in()
 		,'merchantId' => SCommon::s()->merchantId()
@@ -49,14 +49,13 @@ class Button extends _P {
 	 * @used-by \Df\Sso\Button::_toHtml()
 	 * @return string
 	 */
-	final protected function loggedIn() {return df_js(__CLASS__, 'invalidate');}
+	final protected function loggedIn():string {return df_js(__CLASS__, 'invalidate');}
 
 	/**
 	 * 2016-11-26
 	 * @overide
 	 * @see _P::redirectShouldBeSecure()
 	 * @used-by _P::attributes()
-	 * @return bool
 	 */
-	final protected function redirectShouldBeSecure() {return true;}
+	final protected function redirectShouldBeSecure():bool {return true;}
 }

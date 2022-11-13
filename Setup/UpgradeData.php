@@ -8,7 +8,6 @@ class UpgradeData extends \Df\Sso\Upgrade\Data {
 	 * @override
 	 * @see \Df\Sso\Upgrade\Data::labelPrefix()
 	 * @used-by \Df\Sso\Upgrade\Data::attribute()
-	 * @return string
 	 */
-	final protected function labelPrefix() {return 'Amazon';}
+	final protected function labelPrefix():string {return 'Amazon';}
 }

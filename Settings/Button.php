@@ -7,9 +7,11 @@ final class Button extends \Df\Sso\Settings\Button {
 	/**
 	 * 2016-11-29
 	 * @override
-	 * @return string
+	 * @see \Df\Sso\Settings\Button::label()
+	 * @used-by \Df\Sso\Button::attributes()
+	 * @used-by \Df\Sso\Button::loggedOut()
 	 */
-	function label() {return UNL::isNative($this->type()) ? '' : parent::label();}
+	function label():string {return UNL::isNative($this->type()) ? '' : parent::label();}
 
 	/**
 	 * 2016-11-25

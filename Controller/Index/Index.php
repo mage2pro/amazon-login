@@ -52,10 +52,10 @@ class Index extends _P {
 	 * и тогда мы перетрём в Magento реальное имя покупателя (ранее введённое им в Magento).
 	 *
 	 * @see _P::customerFieldsToSync()
-	 * @used-by _P::customer()
+	 * @used-by _P::mc()
 	 * @return string[]
 	 */
-	final protected function customerFieldsToSync() {return array_merge(['email'], parent::customerFieldsToSync());}
+	final protected function customerFieldsToSync():array {return array_merge(['email'], parent::customerFieldsToSync());}
 
 	/**
 	 * 2016-06-05
@@ -67,9 +67,8 @@ class Index extends _P {
 	 * @override
 	 * @see _P::needCreateAddress()
 	 * @used-by _P::register()
-	 * @return bool
 	 */
-	final protected function needCreateAddress() {return false;}
+	final protected function needCreateAddress():bool {return false;}
 
 	/**
 	 * 2016-06-06
@@ -77,7 +76,7 @@ class Index extends _P {
 	 * @see _P::postProcess()
 	 * @used-by _P::execute()
 	 */
-	final protected function postProcess() {df_cookie_set_js(PluginLayout::NEED_UPDATE_CUSTOMER_DATA, 1);}
+	final protected function postProcess():void {df_cookie_set_js(PluginLayout::NEED_UPDATE_CUSTOMER_DATA, 1);}
 
 	/**
 	 * 2016-06-05

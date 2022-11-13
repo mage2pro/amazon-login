@@ -25,6 +25,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * 2016-06-04
 	 * @override
 	 * @see \Df\Sso\Customer::nameFirst()
+	 * @used-by \Df\Sso\CustomerReturn::register()
 	 * @return string
 	 */
 	function nameFirst() {return df_first($this->nameA());}
@@ -33,6 +34,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * 2016-06-04
 	 * @override
 	 * @see \Df\Sso\Customer::nameLast()
+	 * @used-by \Df\Sso\CustomerReturn::register()
 	 * @return string
 	 */
 	function nameLast() {return df_last($this->nameA());}
@@ -51,7 +53,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * @used-by \Df\Sso\CustomerReturn::c()
 	 * @throws \Exception
 	 */
-	function validate() {
+	function validate():void {
 		/**
 		 * «If the user did not grant the request for access, or an error occurs,
 		 * the authorization service will redirect the user-agent (a user's browser)

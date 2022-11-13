@@ -13,7 +13,6 @@ class UpgradeSchema extends \Df\Sso\Upgrade\Schema {
 	 * @override
 	 * @see \Df\Sso\Upgrade\Schema::fId()
 	 * @used-by \Df\Sso\Upgrade\Schema::_process()
-	 * @return string
 	 */
-	final static function fId() {return 'df_amazon__id';}
+	final static function fId():string {return 'df_amazon__id';}
 }
