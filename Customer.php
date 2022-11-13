@@ -154,10 +154,10 @@ final class Customer extends \Df\Sso\Customer {
 	 * Amazon account identifiers are returned as the user_ID property,
 	 * in the form amzn1.accountVALUE. For example: amzn1.account.K2LI23KL2LK2.»
 	 *
-	 * @param string|null $default [optional]
+	 * @param string|null $d [optional]
 	 * @return string|null
 	 */
-	private function p(string $key, $default = null) {return $this->response('user/profile', $key, $default);}
+	private function p(string $k, $d = null) {return $this->response('user/profile', $k, $d);}
 
 	/**
 	 * 2016-06-04
