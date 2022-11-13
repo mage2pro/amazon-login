@@ -67,8 +67,7 @@ final class Customer extends \Df\Sso\Customer {
 		 */
 		$errorCode = df_request('error'); /** @var string|null $errorCode */
 		if ($errorCode) {
-			/** @var string|null $errorDescription */
-			$errorDescription = df_request('error_description', $errorCode);
+			$errorDescription = df_request('error_description', $errorCode); /** @var string|null $errorDescription */
 			df_error("[Login with Amazon]: «{$errorDescription}».");
 		}
 		/**
@@ -143,7 +142,6 @@ final class Customer extends \Df\Sso\Customer {
 	 *		"name": "Jack London",
 	 *		"email": "test-customer@mage2.pro"
 	 *	}
-	 * @var array(string => string) $profile
 	 *
 	 * 2016-06-04
 	 * «Integrate with Your Existing Account System»
@@ -156,11 +154,10 @@ final class Customer extends \Df\Sso\Customer {
 	 * Amazon account identifiers are returned as the user_ID property,
 	 * in the form amzn1.accountVALUE. For example: amzn1.account.K2LI23KL2LK2.»
 	 *
-	 * @param string $key
 	 * @param string|null $default [optional]
 	 * @return string|null
 	 */
-	private function p($key, $default = null) {return $this->response('user/profile', $key, $default);}
+	private function p(string $key, $default = null) {return $this->response('user/profile', $key, $default);}
 
 	/**
 	 * 2016-06-04
