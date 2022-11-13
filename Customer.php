@@ -166,20 +166,16 @@ final class Customer extends \Df\Sso\Customer {
 	 * @param string|null $d [optional]
 	 * @return array(string => string)
 	 */
-	private function response($path, $key, $d = null) {return dfa(dfc($this, function($path) {return
+	private function response($path, $key, $d = null):array {return dfa(dfc($this, function($path) {return
 		df_http_json($this->url($path))
 	;}, [$path]), $key, $d);}
 
 	/**
 	 * 2016-06-03
-	 * @param string $path
-	 * @return string
 	 */
-	private function url($path) {
+	private function url(string $path):string {
 		if (!isset($this->_urlBase)) {
-			$this->_urlBase = df_ccc('.',
-				'https://api', S::s()->test() ? 'sandbox' : null, 'amazon.com/'
-			);
+			$this->_urlBase = df_ccc('.', 'https://api', S::s()->test() ? 'sandbox' : null, 'amazon.com/');
 		}
 		if (!isset($this->_urlQuery)) {
 			/**
