@@ -8,18 +8,16 @@ final class Customer extends \Df\Sso\Customer {
 	 * @override
 	 * @see \Df\Sso\Customer::email()
 	 * @used-by \Df\Sso\CustomerReturn::customerData()
-	 * @return string|null
 	 */
-	function email() {return $this->p('email');}
+	function email():string {return $this->p('email');}
 
 	/**
 	 * 2016-06-04
 	 * @override
 	 * @see \Df\Sso\Customer::id()
 	 * @used-by \Df\Sso\CustomerReturn::register()
-	 * @return string|null
 	 */
-	function id() {return $this->p('user_id');}
+	function id():string {return $this->p('user_id');}
 
 	/**
 	 * 2016-06-04
