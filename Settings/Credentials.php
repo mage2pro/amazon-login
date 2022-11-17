@@ -4,11 +4,11 @@ namespace Dfe\AmazonLogin\Settings;
 /** @method static Credentials s() */
 final class Credentials extends \Df\Config\Settings {
 	/**
-	 * 2016-06-02
-	 * «Client ID»
-	 * @return string
+	 * 2016-06-02 «Client ID»
+	 * @used-by \Dfe\AmazonLogin\Button::jsOptions()
+	 * @used-by \Dfe\AmazonLogin\Customer::validate()
 	 */
-	function id() {return $this->v();}
+	function id():string {return $this->v();}
 
 	/**
 	 * 2016-06-02
