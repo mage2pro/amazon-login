@@ -17,9 +17,8 @@ final class Button extends \Df\Sso\Settings\Button {
 	 * 2016-11-25
 	 * @see \Dfe\AmazonLogin\Source\Button\Native\Color
 	 * @used-by \Dfe\AmazonLogin\Button::loggedOut()
-	 * @return string
 	 */
-	function nativeColor() {return $this->v();}
+	function nativeColor():string {return $this->v();}
 
 	/**
 	 * 2016-11-25
