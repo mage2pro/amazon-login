@@ -148,7 +148,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * @used-by self::id()
 	 * @used-by self::nameFull()
 	 */
-	private function profile(string $k, string $d = ''):string {return df_nts($this->res('user/profile', $k, $d));}
+	private function profile(string $k):string {return df_result_sne($this->res('user/profile', $k));}
 
 	/**
 	 * 2016-06-04
