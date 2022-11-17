@@ -31,7 +31,6 @@ final class Button extends \Df\Sso\Settings\Button {
 	 * 2016-11-25
 	 * @see \Dfe\AmazonLogin\Source\Button\Native\Type
 	 * @used-by \Dfe\AmazonLogin\Button::loggedOut()
-	 * @return string
 	 */
-	function nativeType() {return $this->v();}
+	function nativeType():string {return $this->v();}
 }
