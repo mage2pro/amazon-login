@@ -9,7 +9,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * @see \Df\Sso\Customer::email()
 	 * @used-by \Df\Sso\CustomerReturn::customerData()
 	 */
-	function email():string {return $this->p('email');}
+	function email():string {return $this->profile('email');}
 
 	/**
 	 * 2016-06-04
@@ -17,7 +17,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * @see \Df\Sso\Customer::id()
 	 * @used-by \Df\Sso\CustomerReturn::register()
 	 */
-	function id():string {return $this->p('user_id');}
+	function id():string {return $this->profile('user_id');}
 
 	/**
 	 * 2016-06-04
@@ -39,7 +39,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * 2016-06-04
 	 * @used-by \Dfe\FacebookLogin\Controller\Index\Index::customerData()
 	 */
-	function nameFull():string {return $this->p('name');}
+	function nameFull():string {return $this->profile('name');}
 
 	/**
 	 * 2016-06-04
@@ -148,18 +148,16 @@ final class Customer extends \Df\Sso\Customer {
 	 * @used-by self::id()
 	 * @used-by self::nameFull()
 	 */
-	private function profile(string $k):string {return df_result_sne($this->res('user/profile', $k));}
+	private function profile(string $k):string {return $this->res('user/profile', $k);}
 
 	/**
 	 * 2016-06-04
 	 * @used-by self::profile()
 	 * @used-by self::validate()
-	 * @param string|null $d [optional]
-	 * @return array(string => string)
 	 */
-	private function res(string $path, string $k, $d = null):array {return dfa(dfc($this, function($path) {return
+	private function res(string $path, string $k):string {return df_result_sne(dfa(dfc($this, function($path) {return
 		df_http_json($this->url($path))
-	;}, [$path]), $k, $d);}
+	;}, [$path]), $k));}
 
 	/**
 	 * 2016-06-03
