@@ -38,9 +38,8 @@ final class Customer extends \Df\Sso\Customer {
 	/**
 	 * 2016-06-04
 	 * @used-by \Dfe\FacebookLogin\Controller\Index\Index::customerData()
-	 * @return string
 	 */
-	function nameFull() {return $this->p('name');}
+	function nameFull():string {return $this->p('name');}
 
 	/**
 	 * 2016-06-04
