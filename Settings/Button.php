@@ -24,9 +24,8 @@ final class Button extends \Df\Sso\Settings\Button {
 	 * 2016-11-25
 	 * @see \Dfe\AmazonLogin\Source\Button\Native\Size
 	 * @used-by \Dfe\AmazonLogin\Button::loggedOut()
-	 * @return string
 	 */
-	function nativeSize() {return $this->v();}
+	function nativeSize():string {return $this->v();}
 
 	/**
 	 * 2016-11-25
