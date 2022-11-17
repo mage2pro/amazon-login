@@ -92,7 +92,7 @@ final class Customer extends \Df\Sso\Customer {
 		 * If they are different, the access token was not requested by your application,
 		 * and you should not use the access token.»
 		 */
-		df_assert_eq(Credentials::s()->id(), $this->response('auth/o2/tokeninfo', 'aud'));
+		df_assert_eq(Credentials::s()->id(), $this->res('auth/o2/tokeninfo', 'aud'));
 	}
 
 	/**
@@ -101,7 +101,7 @@ final class Customer extends \Df\Sso\Customer {
 	 * @used-by self::nameLast()
 	 * @return string[]
 	 */
-	private function nameA():array {return dfc($this, function() {return explode(' ', $this->nameFull());});}
+	private function nameA():array {return df_explode_space($this->nameFull());}
 
 	/**
 	 * 2016-06-04
@@ -148,22 +148,22 @@ final class Customer extends \Df\Sso\Customer {
 	 * @used-by self::id()
 	 * @used-by self::nameFull()
 	 */
-	private function p(string $k, string $d = ''):string {return df_nts($this->response('user/profile', $k, $d));}
+	private function profile(string $k, string $d = ''):string {return df_nts($this->res('user/profile', $k, $d));}
 
 	/**
 	 * 2016-06-04
-	 * @param string $path
-	 * @param string $key
+	 * @used-by self::profile()
+	 * @used-by self::validate()
 	 * @param string|null $d [optional]
 	 * @return array(string => string)
 	 */
-	private function response($path, $key, $d = null):array {return dfa(dfc($this, function($path) {return
+	private function res(string $path, string $k, $d = null):array {return dfa(dfc($this, function($path) {return
 		df_http_json($this->url($path))
-	;}, [$path]), $key, $d);}
+	;}, [$path]), $k, $d);}
 
 	/**
 	 * 2016-06-03
-	 * @used-by self::response()
+	 * @used-by self::res()
 	 */
 	private function url(string $path):string {
 		if (!isset($this->_urlBase)) {
