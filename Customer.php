@@ -108,7 +108,7 @@ final class Customer extends \Df\Sso\Customer {
 
 	/**
 	 * 2016-06-04
-	 * «Obtain Customer Profile Information»
+	 * 1) «Obtain Customer Profile Information»
 	 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/obtain_customer_profile.html
 	 * «Once the user grants your website access to their Amazon customer profile,
 	 * you will receive an access token.
@@ -121,43 +121,37 @@ final class Customer extends \Df\Sso\Customer {
 	 * In response, Login with Amazon will return the appropriate customer profile data.
 	 * The profile data you receive is determined by the scope you specified when requesting access.
 	 * The access token reflects access permission for that scope.»
-	 *
-	 * Раньше решение было таким:
+	 * 2) Раньше решение было таким:
 	 *	$client = new \Zend_Http_Client;
 	 *	$client->setUri($this->url('user/profile'));
 	 *	$client->setHeaders('Authorization', 'bearer ' . $token);
 	 *	$profile = df_json_decode($client->request()->getBody())
-	 *
-	 * Оказывается, мы не обязаны использовать заголовок HTTP «Authorization»,
+	 *  3) Оказывается, мы не обязаны использовать заголовок HTTP «Authorization»,
 	 * а можем вместо этого просто передать токен в URL:
 	 * https://api.amazon.com/user/profile?access_token=AtzaIIQ...
 	 * «If you are calling the Profile REST API directly,
 	 * you can specify the access token in one of three ways:
 	 * as a query parameter, as a bearer token, or using x-amz-access-token in the HTTP header.»
 	 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/obtain_customer_profile.html
-	 *
 	 * 2016-06-03
 	 *	{
 	 *		"user_id": "amzn1.account.AGM6GZJB6GO42REKZDL33HG7GEJA",
 	 *		"name": "Jack London",
 	 *		"email": "test-customer@mage2.pro"
 	 *	}
-	 *
 	 * 2016-06-04
-	 * «Integrate with Your Existing Account System»
-	 * https://login.amazon.com/documentation/combining-user-accounts
-	 *
+	 * «Integrate with Your Existing Account System» https://login.amazon.com/documentation/combining-user-accounts
 	 * «You will need to modify your account database
 	 * to record a mapping between Amazon account identifiers and your local accounts.
 	 * This could take the form of a new field in your account table
 	 * or a table that maps between Amazon account identifiers and your local account identifiers.
 	 * Amazon account identifiers are returned as the user_ID property,
 	 * in the form amzn1.accountVALUE. For example: amzn1.account.K2LI23KL2LK2.»
-	 *
-	 * @param string|null $d [optional]
-	 * @return string|null
+	 * @used-by self::email()
+	 * @used-by self::id()
+	 * @used-by self::nameFull()
 	 */
-	private function p(string $k, $d = null) {return $this->response('user/profile', $k, $d);}
+	private function p(string $k, string $d = ''):string {return df_nts($this->response('user/profile', $k, $d));}
 
 	/**
 	 * 2016-06-04

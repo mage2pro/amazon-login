@@ -47,7 +47,6 @@ class Button extends _P {
 	 * @override
 	 * @see \Df\Sso\Button::loggedIn()
 	 * @used-by \Df\Sso\Button::_toHtml()
-	 * @return string
 	 */
 	final protected function loggedIn():string {return df_js(__CLASS__, 'invalidate');}
 
