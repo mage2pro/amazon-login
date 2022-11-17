@@ -97,9 +97,11 @@ final class Customer extends \Df\Sso\Customer {
 
 	/**
 	 * 2016-06-04
+	 * @used-by self::nameFirst()
+	 * @used-by self::nameLast()
 	 * @return string[]
 	 */
-	private function nameA() {return dfc($this, function() {return explode(' ', $this->nameFull());});}
+	private function nameA():array {return dfc($this, function() {return explode(' ', $this->nameFull());});}
 
 	/**
 	 * 2016-06-04
