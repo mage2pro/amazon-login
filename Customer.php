@@ -32,9 +32,8 @@ final class Customer extends \Df\Sso\Customer {
 	 * @override
 	 * @see \Df\Sso\Customer::nameLast()
 	 * @used-by \Df\Sso\CustomerReturn::register()
-	 * @return string
 	 */
-	function nameLast() {return df_last($this->nameA());}
+	function nameLast():string {return df_last($this->nameA());}
 
 	/**
 	 * 2016-06-04
