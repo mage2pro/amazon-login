@@ -11,8 +11,6 @@ final class Type extends \Df\Config\Source {
 	 * @return array(string => string)
 	 */
 	protected function map():array {return [
-		'LwA' => 'logo and «Login with Amazon» label'
-		,'Login' => 'logo and «Login» label'
-		,'A' => 'logo only'
+		'LwA' => 'logo and «Login with Amazon» label', 'Login' => 'logo and «Login» label', 'A' => 'logo only'
 	];}
 }
