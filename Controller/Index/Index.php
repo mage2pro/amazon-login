@@ -82,9 +82,8 @@ class Index extends _P {
 	 * 2016-06-05
 	 * https://github.com/mage2pro/amazon/blob/4f911a0d/view/frontend/web/login.js#L232
 	 * @override
-	 * @see _P::redirectUrlKey()
+	 * @see \Df\Sso\CustomerReturn::redirectUrlKey()
 	 * @used-by _P::redirectUrl()
-	 * @return string
 	 */
-	final protected function redirectUrlKey() {return 'state';}
+	final protected function redirectUrlKey():string {return 'state';}
 }
