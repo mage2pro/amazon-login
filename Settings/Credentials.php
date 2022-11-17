@@ -11,11 +11,10 @@ final class Credentials extends \Df\Config\Settings {
 	function id():string {return $this->v();}
 
 	/**
-	 * 2016-06-02
-	 * «Client Secret»
-	 * @return string
+	 * 2016-06-02 «Client Secret»
+	 * 2022-11-17 @deprecated It is unused.
 	 */
-	function secret() {return $this->p();}
+	function secret():string {return $this->p();}
 
 	/**
 	 * 2016-06-02
