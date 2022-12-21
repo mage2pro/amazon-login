@@ -152,9 +152,9 @@ final class Customer extends \Df\Sso\Customer {
 	 * @used-by self::profile()
 	 * @used-by self::validate()
 	 */
-	private function res(string $path, string $k):string {return df_result_sne(dfa(dfc($this, function($path) {return
-		df_http_json($this->url($path))
-	;}, [$path]), $k));}
+	private function res(string $p, string $k):string {return df_result_sne(dfa(dfc($this, function(string $p):string {return
+		df_http_json($this->url($p))
+	;}, [$p]), $k));}
 
 	/**
 	 * 2016-06-03
