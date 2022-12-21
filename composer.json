@@ -6,9 +6,9 @@
 	,"homepage": "https://mage2.pro/c/extensions/amazon-login"
 	,"license": "proprietary"
 	,"authors": [{
-		"name": "Dmitry Fedyuk",
+		"name": "Dmitrii Fediuk",
 		"email": "admin@mage2.pro",
-		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
+		"homepage": "https://www.upwork.com/fl/mage2pro",
 		"role": "Developer"
 	}]
 	,"require": {"mage2pro/amazon": ">=1.0.16", "mage2pro/core": ">=3.6.7"}
