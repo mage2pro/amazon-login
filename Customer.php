@@ -49,17 +49,14 @@ final class Customer extends \Df\Sso\Customer {
 	 * @throws \Exception
 	 */
 	function validate():void {
-		/**
-		 * «If the user did not grant the request for access, or an error occurs,
-		 * the authorization service will redirect the user-agent (a user's browser)
-		 * to a URI specified by the client.
-		 * That URI will contain error parameters detailing the error.»
-		 * https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/implicit_grant.html
-		 *
-		 * HTTP/l.l 302 Found
-		 * Location: https://client.example.com/cb#error=access_denied
-		 * &state=208257577ll0975l93l2l59l895857093449424
-		 */
+		# «If the user did not grant the request for access, or an error occurs,
+		# the authorization service will redirect the user-agent (a user's browser)
+		# to a URI specified by the client.
+		# That URI will contain error parameters detailing the error.»
+		# https://developer.amazon.com/public/apis/engage/login-with-amazon/docs/implicit_grant.html
+		#
+		# HTTP/l.l 302 Found
+		# Location: https://client.example.com/cb#error=access_denied&state=208257577ll0975l93l2l59l895857093449424
 		$errorCode = df_request('error'); /** @var string|null $errorCode */
 		if ($errorCode) {
 			$errorDescription = df_request('error_description', $errorCode); /** @var string|null $errorDescription */
