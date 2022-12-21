@@ -37,7 +37,7 @@ class Button extends _P {
 			# the LwA (Login with Amazon) button will be set as the default value.
 			# The following table shows the valid type parameter values,
 			# button descriptions, and sample button images.»
-			//	https://payments.amazon.com/documentation/lpwa/201953980
+			# https://payments.amazon.com/documentation/lpwa/201953980
 			,'type' => $s->nativeType()
 		]
 	];}
