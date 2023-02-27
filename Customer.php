@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\AmazonLogin;
-use Df\Amazon\Settings as S;
+use Dfe\Amazon\Settings as S;
 use Dfe\AmazonLogin\Settings\Credentials;
 final class Customer extends \Df\Sso\Customer {
 	/**

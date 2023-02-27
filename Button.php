@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\AmazonLogin;
-use Df\Amazon\Settings as SCommon;
+use Dfe\Amazon\Settings as SCommon;
 use Df\Sso\Button\Js as _P;
 use Dfe\AmazonLogin\Settings\Credentials as SCredentials;
 /**
